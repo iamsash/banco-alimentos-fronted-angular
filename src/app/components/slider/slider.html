@@ -1,0 +1,26 @@
+<section class="slider-section" id="sliderPrincipal">
+  <div class="slider-container">
+
+    <button class="slider-btn prev" (click)="anteriorImagen()" aria-label="Imagen anterior">
+      &#10094;
+    </button>
+
+    <div class="slider-box">
+      <img [src]="imagenes[indiceActual]" alt="Reporte Banco de Alimentos">
+    </div>
+
+    <button class="slider-btn next" (click)="siguienteImagen()" aria-label="Imagen siguiente">
+      &#10095;
+    </button>
+
+    <div class="slider-indicators">
+      <span
+        *ngFor="let imagen of imagenes; let i = index"
+        class="indicator"
+        [class.active]="i === indiceActual"
+        (click)="irAImagen(i)">
+      </span>
+    </div>
+
+  </div>
+</section>

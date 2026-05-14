@@ -1,0 +1,59 @@
+<section id="mision-vision" class="seccion">
+  <div class="contenido">
+
+    <div class="mision-vision-header">
+      <h2>Nuestra <span>Misión</span> y <span>Visión</span></h2>
+      <div class="linea-mv"></div>
+      <p>Trabajamos cada día para construir un mundo con menos hambre y más oportunidades.</p>
+    </div>
+
+    <div class="mision-vision-container">
+
+      <div class="info-box mision-box">
+        <div class="info-content">
+          <div class="icono-mv">🎯</div>
+          <h2>MISIÓN</h2>
+          <p>
+            Contribuir a la reducción sostenible del hambre y la desnutrición en poblaciones
+            en situación de vulnerabilidad, mediante la recuperación, gestión y distribución eficiente
+            de alimentos aptos para el consumo.
+          </p>
+          <p>
+            Asimismo, promover la disminución del desperdicio alimentario a través de prácticas
+            responsables, alianzas estratégicas y el fortalecimiento de una cultura de solidaridad
+            y compromiso social.
+          </p>
+        </div>
+
+        <div class="imagen-mv-placeholder">
+          Imagen de misión
+        </div>
+      </div>
+
+      <div class="info-box vision-box">
+        <div class="imagen-mv-placeholder">
+          Imagen de visión
+        </div>
+
+        <div class="info-content">
+          <div class="icono-mv">👁️</div>
+          <h2>VISIÓN</h2>
+          <p>
+            Consolidarnos como una organización líder y referente en la lucha contra el hambre
+            y la desnutrición a nivel regional y nacional, destacando por la eficiencia,
+            transparencia e innovación en la gestión y redistribución de alimentos.
+          </p>
+        </div>
+      </div>
+
+      <div class="impacto-mv">
+        <div class="impacto-card" *ngFor="let item of impacto">
+          <span>{{ item.icono }}</span>
+          <h3>{{ item.numero }}</h3>
+          <p>{{ item.descripcion }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

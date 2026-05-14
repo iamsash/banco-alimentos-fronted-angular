@@ -1,0 +1,42 @@
+<section id="donar" class="seccion">
+
+  <div class="contenido">
+
+    <div class="donacion-box">
+      <p class="donacion-online">Donación ON-LINE</p>
+    </div>
+
+    <p class="donar-texto">
+      Tenemos el compromiso de ayudar a 600 Familias Vulnerables y 10 Casas de Ayuda Social.
+      En total son 1100 beneficiarios.
+    </p>
+
+    <p class="seguimos">
+      SEGUIMOS DÍA A DÍA RESCATANDO ALIMENTOS y RECAUDANDO FONDOS,
+      pero NO ES SUFICIENTE.
+    </p>
+
+    <p class="donar-cta">
+      ¿Quieres ayudarnos?
+    </p>
+
+    <div class="donar-opciones">
+
+      <article
+        class="donar-card"
+        *ngFor="let opcion of opcionesDonacion"
+      >
+
+        <h3>{{ opcion.titulo }}</h3>
+
+        <button class="donar-button">
+          Aquí
+        </button>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>

@@ -1,2 +1,66 @@
-<h1>Banco Alimentos</h1>
+
+
+<!-- HEADER NEGRO -->
+<header class="header-top">
+  <div class="contenedor-top">
+    <nav>
+      <ul>
+        <li><a (click)="mostrarSeccion('inicio')">Inicio</a></li>
+        <li><a (click)="mostrarSeccion('aliado')">Sé Nuestro Aliado</a></li>
+        <li><a (click)="mostrarSeccion('boletines')">Boletines</a></li>
+        <li><a (click)="mostrarSeccion('voluntariado')">Voluntariado</a></li>
+        <li><a (click)="mostrarSeccion('correo')">Correo</a></li>
+        <li><a (click)="mostrarSeccion('intranet')">Intranet</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HEADER NARANJA -->
+<div class="sub-header">
+  <div class="contenedor-sub">
+
+    <div class="logo">
+      <img src="assets/images/lOGOBANNERJPG.jpg" alt="Banco de Alimentos">
+    </div>
+
+    <nav class="menu-blanco">
+      <ul>
+        <li><a (click)="mostrarSeccion('quienes-somos')">Quiénes Somos</a></li>
+        <li><a (click)="mostrarSeccion('que-hacemos')">Qué Hacemos</a></li>
+        <li><a (click)="mostrarSeccion('mision-vision')">Nuestra Misión y Visión</a></li>
+        <li><a (click)="mostrarSeccion('donacion-impuestos')">Donación Por Impuestos</a></li>
+        <li><a (click)="mostrarSeccion('donar')">Donar</a></li>
+
+        <li class="menu-dropdown">
+          <a class="btn-menu">
+            <i class="fas fa-search"></i>
+          </a>
+
+          <div class="dropdown-menu">
+            <input 
+              type="text" 
+              placeholder="Buscar..." 
+              class="search-input"
+              [(ngModel)]="busqueda"
+            >
+
+            <div class="menu-results">
+              <ul>
+                <li *ngFor="let item of filtrarMenu()">
+                  <a (click)="mostrarSeccion(item.seccion)">
+                    {{ item.nombre }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
 

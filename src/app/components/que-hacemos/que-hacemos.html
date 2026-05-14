@@ -1,0 +1,39 @@
+<section class="seccion que-hacemos-section" id="que-hacemos">
+  
+  <div class="section-title">
+    <h2>¿Qué Hacemos?</h2>
+    <p>Rescatamos alimentos y los llevamos a quienes más lo necesitan.</p>
+  </div>
+
+  <div class="cards-acciones">
+    <div class="accion-card" *ngFor="let accion of acciones">
+      <div class="icono">{{ accion.icono }}</div>
+      <h3>{{ accion.titulo }}</h3>
+      <p>{{ accion.descripcion }}</p>
+    </div>
+  </div>
+
+  <div class="galeria">
+    <div class="imagen-placeholder">Imagen 1</div>
+    <div class="imagen-placeholder">Imagen 2</div>
+    <div class="imagen-placeholder">Imagen 3</div>
+  </div>
+
+  <div class="impacto">
+    <h3>Nuestro Impacto</h3>
+
+    <div class="impacto-grid">
+      <div *ngFor="let item of impacto">
+        <h4>{{ item.numero }}</h4>
+        <p>{{ item.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-box">
+    <div class="video-placeholder">
+      ▶ Video institucional
+    </div>
+  </div>
+
+</section>

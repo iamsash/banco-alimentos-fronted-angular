@@ -1,3 +1,5 @@
+import { Auth } from '../../services/auth';
+
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -8,7 +10,10 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './intranet.html',
   styleUrl: './intranet.css',
 })
+
 export class IntranetComponent {
+
+  constructor(private authService: Auth) {}
 
   login = {
     usuario: '',
@@ -17,7 +22,30 @@ export class IntranetComponent {
   };
 
   ingresar() {
-    console.log(this.login);
+
+    this.authService.login(
+      this.login.usuario,
+      this.login.contrasena
+    ).subscribe({
+
+      next: (respuesta) => {
+  console.log('Login correcto', respuesta);
+
+  localStorage.setItem('logueado', 'true');
+
+  alert('Bienvenido al panel');
+},
+
+      error: (error) => {
+
+        console.error(error);
+
+        alert('Credenciales incorrectas');
+
+      }
+
+    });
+
   }
 
 }

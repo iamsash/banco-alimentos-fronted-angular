@@ -1,0 +1,76 @@
+<section id="aliado" class="seccion">
+
+  <div class="contenido">
+
+    <div class="aliado-titulo">
+      <h2>Sé Nuestro Aliado</h2>
+    </div>
+
+    <div class="aliado-marco">
+
+      <p>
+        Únete al Banco de Alimentos de Cajamarca como aliado y ayúdanos
+        a recopilar y distribuir alimentos para las familias más vulnerables.
+      </p>
+
+      <form>
+
+        <label>Nombre de Empresa o Institución</label>
+        <input
+          type="text"
+          placeholder="Ej. Supermercado Plaza Vea"
+          [(ngModel)]="formulario.empresa"
+          name="empresa"
+        >
+
+        <label>Nombre de Contacto</label>
+        <input
+          type="text"
+          placeholder="Ej. María Pérez"
+          [(ngModel)]="formulario.contacto"
+          name="contacto"
+        >
+
+        <label>Email de Contacto</label>
+        <input
+          type="email"
+          placeholder="ejemplo@correo.com"
+          [(ngModel)]="formulario.email"
+          name="email"
+        >
+
+        <label>Celular de Contacto</label>
+        <input
+          type="tel"
+          placeholder="Ej. +51912345678"
+          [(ngModel)]="formulario.telefono"
+          name="telefono"
+        >
+
+        <label>Mensaje</label>
+        <textarea
+          rows="5"
+          placeholder="Cuéntanos cómo puedes colaborar"
+          [(ngModel)]="formulario.mensaje"
+          name="mensaje"
+        ></textarea>
+
+        <div class="botones-formulario">
+
+          <button type="button" (click)="enviarFormulario()">
+            Enviar
+          </button>
+
+          <button type="reset">
+            Limpiar
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>

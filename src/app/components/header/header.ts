@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
 export class HeaderComponent {
+
+  @Output() seccionSeleccionada = new EventEmitter<string>();
 
   busqueda: string = '';
 
@@ -27,7 +30,7 @@ export class HeaderComponent {
   ];
 
   mostrarSeccion(seccion: string) {
-    console.log('Sección seleccionada:', seccion);
+    this.seccionSeleccionada.emit(seccion);
   }
 
   filtrarMenu() {
@@ -36,4 +39,3 @@ export class HeaderComponent {
     );
   }
 }
-

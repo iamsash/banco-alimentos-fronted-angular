@@ -1,7 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f6f8;
+  color: #222;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.contenedor-secciones {
+  width: 100%;
+  min-height: 100vh;
+}
+
 .seccion {
-  scroll-margin-top: 150px;
+  width: 100%;
+  padding: 60px 20px;
+  animation: aparecer 0.4s ease-in-out;
+}
+
+.contenido {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1, h2, h3 {
+  color: #222;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+  color: #444;
+}
+
+button,
+.btn-card,
+.btn-video,
+.btn-contacto,
+.btn-recurso {
+  display: inline-block;
+  border: none;
+  background: #f28c00;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+button:hover,
+.btn-card:hover,
+.btn-video:hover,
+.btn-contacto:hover,
+.btn-recurso:hover {
+  background: #d97700;
+  transform: translateY(-2px);
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive general */
+@media (max-width: 768px) {
+  .seccion {
+    padding: 40px 15px;
+  }
+
+  .contenido {
+    width: 95%;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 15px;
+  }
 }

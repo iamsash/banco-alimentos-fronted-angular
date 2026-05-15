@@ -2,7 +2,7 @@
 
 <main class="contenedor-secciones">
 
-  <app-slider *ngIf="seccionActiva === 'inicio'"></app-slider>
+<app-inicio *ngIf="seccionActiva === 'inicio'"></app-inicio>
 
   <app-quienes-somos *ngIf="seccionActiva === 'quienes-somos'"></app-quienes-somos>
 
@@ -25,3 +25,7 @@
   <app-intranet *ngIf="seccionActiva === 'intranet'"></app-intranet>
 
 </main>
+
+
+
+<app-footer></app-footer>

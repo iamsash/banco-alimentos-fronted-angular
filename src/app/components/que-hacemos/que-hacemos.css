@@ -1,0 +1,191 @@
+.que-hacemos-section {
+  padding: 70px 20px;
+  background: #f5f5f5;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* CARDS */
+
+.cards-acciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.accion-card {
+  background: white;
+  border-radius: 22px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
+
+.accion-card:hover {
+  transform: translateY(-8px);
+}
+
+.icono {
+  width: 70px;
+  height: 70px;
+  background: #f28c00;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+.accion-card h3 {
+  font-size: 30px;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.accion-card p {
+  color: #555;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* GALERIA */
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 45px;
+}
+
+.imagen-placeholder {
+  height: 220px;
+  border: 2px dashed #bbb;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+  font-weight: 600;
+  background: #efefef;
+}
+
+/* IMPACTO */
+
+.impacto {
+  background: white;
+  margin-top: 45px;
+  border-radius: 22px;
+  padding: 40px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.impacto h3 {
+  text-align: center;
+  color: #f28c00;
+  font-size: 42px;
+  margin-bottom: 35px;
+}
+
+.impacto-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.impacto-grid h4 {
+  font-size: 52px;
+  color: #f28c00;
+  margin-bottom: 10px;
+}
+
+.impacto-grid p {
+  color: #555;
+}
+
+/* VIDEO */
+
+.video-box {
+  margin-top: 40px;
+}
+
+.video-placeholder {
+  width: 420px;
+  height: 240px;
+  background: #777;
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-end;
+  padding: 25px;
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .impacto-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .video-placeholder {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .section-title h2 {
+    font-size: 38px;
+  }
+
+  .impacto h3 {
+    font-size: 32px;
+  }
+
+  .impacto-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impacto-grid h4 {
+    font-size: 40px;
+  }
+
+  .accion-card h3 {
+    font-size: 24px;
+  }
+}
+
+.cards-acciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1400px;
+  margin: auto;
+}

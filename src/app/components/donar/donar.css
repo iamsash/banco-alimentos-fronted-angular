@@ -1,0 +1,146 @@
+.seccion {
+  padding: 70px 20px;
+  background: #f5f5f5;
+}
+
+
+
+
+/* TITULO */
+
+.donacion-box {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.donacion-online {
+  font-size: 38px;
+  font-weight: 800;
+  color: #111;
+  position: relative;
+  display: inline-block;
+}
+
+.donacion-online::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #f28c00;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 50px;
+}
+
+/* TEXOS */
+
+.donar-texto {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.seguimos {
+  max-width: 900px;
+  margin: 35px auto 20px;
+  background: #e8e1d7;
+  padding: 22px;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.donar-cta {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 30px;
+  margin-bottom: 35px;
+}
+
+
+
+/* CARDS */
+
+.donar-opciones {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+ 
+}
+
+.donar-card {
+  width: 260px;
+  padding: 35px 20px;
+  border-radius: 22px;
+  color: white;
+  text-align: center;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.donar-card:hover {
+  transform: translateY(-8px);
+}
+
+.donar-card h3 {
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.donar-alimentos {
+  background: linear-gradient(135deg, #5b9b62, #1d6d2b);
+}
+
+.donar-dinero {
+  background: linear-gradient(135deg, #4267c8, #21439a);
+}
+
+.donar-padrinaje {
+  background: linear-gradient(135deg, #a02090, #d100b8);
+}
+
+
+
+/* BOTON */
+
+.donar-button {
+  background: white;
+  color: #1d6d2b;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.donar-button:hover {
+  transform: scale(1.06);
+}
+
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+  .donacion-online {
+    font-size: 30px;
+  }
+
+  .seguimos {
+    font-size: 18px;
+    padding: 18px;
+  }
+
+  .donar-card {
+    width: 100%;
+    max-width: 340px;
+  }
+}

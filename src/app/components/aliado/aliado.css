@@ -1,0 +1,137 @@
+#aliado {
+  background: #f5f5f5;
+  padding: 80px 20px;
+}
+
+.aliado-titulo {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.aliado-titulo h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #111;
+  position: relative;
+  display: inline-block;
+}
+
+.aliado-titulo h2::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background: #f28c00;
+  display: block;
+  margin: 14px auto 0;
+  border-radius: 30px;
+}
+
+.aliado-marco {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  border-radius: 24px;
+  padding: 45px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-bottom: 4px solid #f28c00;
+}
+
+.aliado-marco p {
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 35px;
+}
+
+/* FORMULARIO */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+form label {
+  font-weight: 700;
+  color: #222;
+  font-size: 15px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s ease;
+  background: #fafafa;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #f28c00;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(242, 140, 0, 0.12);
+}
+
+form textarea {
+  resize: none;
+}
+
+/* BOTONES */
+
+.botones-formulario {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.botones-formulario button {
+  border: none;
+  padding: 14px 34px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.botones-formulario button[type="button"] {
+  background: linear-gradient(135deg, #f28c00, #ff6a00);
+  color: white;
+}
+
+.botones-formulario button[type="reset"] {
+  background: #efefef;
+  color: #333;
+}
+
+.botones-formulario button:hover {
+  transform: translateY(-3px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+  .aliado-marco {
+    padding: 30px 22px;
+  }
+
+  .aliado-titulo h2 {
+    font-size: 36px;
+  }
+
+  .botones-formulario {
+    flex-direction: column;
+  }
+
+  .botones-formulario button {
+    width: 100%;
+  }
+}

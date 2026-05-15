@@ -12,9 +12,8 @@ import { CommonModule } from '@angular/common';
 export class DonarComponent {
 
   opcionesDonacion = [
-    { titulo: 'Donar Alimentos' },
-    { titulo: 'Donar Dinero' },
-    { titulo: 'Padrinaje Solidario' }
-  ];
-
+  { titulo: 'Donar Alimentos', clase: 'donar-alimentos' },
+  { titulo: 'Donar Dinero', clase: 'donar-dinero' },
+  { titulo: 'Padrinaje Solidario', clase: 'donar-padrinaje' }
+];
 }

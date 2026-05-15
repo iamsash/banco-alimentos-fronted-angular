@@ -1,0 +1,168 @@
+#intranet {
+  background: linear-gradient(135deg, #f5f5f5, #ececec);
+  padding: 90px 20px;
+}
+
+.intranet-box {
+  max-width: 520px;
+  margin: auto;
+  background: white;
+  border-radius: 28px;
+  padding: 45px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  border-top: 5px solid #f28c00;
+  position: relative;
+  overflow: hidden;
+}
+
+.intranet-box::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: rgba(242, 140, 0, 0.08);
+  border-radius: 50%;
+  top: -70px;
+  right: -70px;
+}
+
+.intranet-title {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.intranet-title h2 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #111;
+}
+
+.intranet-title h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #f28c00;
+  display: block;
+  margin: 14px auto 0;
+  border-radius: 30px;
+}
+
+.intranet-info {
+  position: relative;
+  z-index: 2;
+}
+
+.intranet-info p {
+  text-align: center;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+/* FORM */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group i {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #f28c00;
+  font-size: 18px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 16px 16px 16px 52px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 15px;
+  background: #fafafa;
+  transition: 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #f28c00;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(242, 140, 0, 0.12);
+}
+
+/* EXTRA */
+
+.login-extra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.login-extra label {
+  color: #444;
+}
+
+.login-forgot {
+  color: #f28c00;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.login-forgot:hover {
+  color: #111;
+}
+
+/* BOTON */
+
+.btn-login {
+  background: linear-gradient(135deg, #f28c00, #ff6a00);
+  border: none;
+  color: white;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn-login i {
+  margin-right: 8px;
+}
+
+.btn-login:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(242, 140, 0, 0.25);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+  .intranet-box {
+    padding: 35px 25px;
+  }
+
+  .intranet-title h2 {
+    font-size: 32px;
+  }
+
+  .login-extra {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -18,7 +18,7 @@ import { DonacionService } from '../../services/donacion';
   templateUrl: './panel-admin.html',
   styleUrl: './panel-admin.css'
 })
-export class PanelAdminComponent {
+export class PanelAdminComponent implements OnInit {
 
   seccionPanel: string = 'dashboard';
 
@@ -45,12 +45,44 @@ export class PanelAdminComponent {
       id: 0
     }
   };
+  usuarios: Usuario[] = [];
+alimentos: Alimento[] = [];
 
   constructor(
+
+    
+
+    
     private alimentoService: AlimentoService,
     private usuarioService: UsuarioService,
     private donacionService: DonacionService
   ) {}
+
+ngOnInit(): void {
+    this.usuarioService.listar().subscribe({
+      next: (data) => {
+        this.usuarios = data;
+      },
+      error: (error) => {
+        console.error('ERROR COMPLETO:', error);
+        console.error('STATUS:', error.status);
+        console.error('MENSAJE:', error.error);
+        alert('Error al cargar usuarios');
+      }
+    });
+
+    this.alimentoService.listar().subscribe({
+      next: (data) => {
+        this.alimentos = data;
+      },
+      error: (error) => {
+        console.error('ERROR COMPLETO:', error);
+        console.error('STATUS:', error.status);
+        console.error('MENSAJE:', error.error);
+        alert('Error al cargar alimentos');
+      }
+    });
+}
 
   cambiarSeccion(seccion: string) {
     this.seccionPanel = seccion;
@@ -122,4 +154,9 @@ export class PanelAdminComponent {
       }
     });
   }
+
+
 }
+  
+
+

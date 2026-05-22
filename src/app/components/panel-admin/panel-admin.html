@@ -1,1 +1,54 @@
+<section class="panel-admin">
 
+  <div class="panel-card">
+
+    <h2>Panel Administrativo</h2>
+    <p class="subtitulo">Registro de alimentos para el Banco de Alimentos</p>
+
+    <form class="formulario-alimentos" (ngSubmit)="guardarAlimento()">
+
+      <div class="campo">
+        <label>Nombre del alimento</label>
+        <input
+          type="text"
+          placeholder="Ejemplo: Arroz, papa, fideos"
+          [(ngModel)]="alimento.nombre"
+          name="nombre"
+          required
+        >
+      </div>
+
+      <div class="campo">
+        <label>Descripción</label>
+        <input
+          type="text"
+          placeholder="Ejemplo: Bolsa de arroz, papa huayro"
+          [(ngModel)]="alimento.descripcion"
+          name="descripcion"
+          required
+        >
+      </div>
+
+      <div class="campo">
+        <label>Unidad de medida</label>
+        <select
+          [(ngModel)]="alimento.unidadMedida"
+          name="unidadMedida"
+          required
+        >
+          <option value="">Seleccione unidad</option>
+          <option value="kg">Kilogramos</option>
+          <option value="unidad">Unidad</option>
+          <option value="litro">Litro</option>
+        </select>
+      </div>
+
+      <button type="submit">
+        Guardar alimento
+      </button>
+
+    </form>
+
+  </div>
+
+</section>

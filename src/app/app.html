@@ -22,9 +22,14 @@
 
   <app-correo *ngIf="seccionActiva === 'correo'"></app-correo>
 
-  <app-intranet *ngIf="seccionActiva === 'intranet'"></app-intranet>
+<app-intranet
+  *ngIf="seccionActiva === 'intranet'"
+  (loginCorrecto)="abrirPanel()">
+</app-intranet>
 
     <app-panel-admin *ngIf="seccionActiva === 'panel-admin'"></app-panel-admin>
+
+
 </main>
 
 

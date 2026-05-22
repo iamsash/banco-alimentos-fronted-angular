@@ -1,6 +1,5 @@
 import { Auth } from '../../services/auth';
-
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -12,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class IntranetComponent {
+  @Output() loginCorrecto = new EventEmitter<void>();
 
   constructor(private authService: Auth) {}
 
@@ -34,6 +34,8 @@ export class IntranetComponent {
   localStorage.setItem('logueado', 'true');
 
   alert('Bienvenido al panel');
+
+  this.loginCorrecto.emit();
 },
 
       error: (error) => {

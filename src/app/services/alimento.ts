@@ -15,4 +15,8 @@ export class AlimentoService {
   guardar(alimento: Alimento): Observable<Alimento> {
     return this.http.post<Alimento>(this.apiUrl, alimento);
   }
+
+  listar(): Observable<Alimento[]> {
+    return this.http.get<Alimento[]>(this.apiUrl);
+  }
 }

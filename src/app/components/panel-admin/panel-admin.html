@@ -1,54 +1,176 @@
 <section class="panel-admin">
 
-  <div class="panel-card">
+  <aside class="sidebar-panel">
 
-    <h2>Panel Administrativo</h2>
-    <p class="subtitulo">Registro de alimentos para el Banco de Alimentos</p>
+    <div class="logo-panel">
+      <h2>Banco de<br>Alimentos</h2>
+    </div>
 
-    <form class="formulario-alimentos" (ngSubmit)="guardarAlimento()">
-
-      <div class="campo">
-        <label>Nombre del alimento</label>
-        <input
-          type="text"
-          placeholder="Ejemplo: Arroz, papa, fideos"
-          [(ngModel)]="alimento.nombre"
-          name="nombre"
-          required
-        >
-      </div>
-
-      <div class="campo">
-        <label>Descripción</label>
-        <input
-          type="text"
-          placeholder="Ejemplo: Bolsa de arroz, papa huayro"
-          [(ngModel)]="alimento.descripcion"
-          name="descripcion"
-          required
-        >
-      </div>
-
-      <div class="campo">
-        <label>Unidad de medida</label>
-        <select
-          [(ngModel)]="alimento.unidadMedida"
-          name="unidadMedida"
-          required
-        >
-          <option value="">Seleccione unidad</option>
-          <option value="kg">Kilogramos</option>
-          <option value="unidad">Unidad</option>
-          <option value="litro">Litro</option>
-        </select>
-      </div>
-
-      <button type="submit">
-        Guardar alimento
+    <nav class="menu-panel">
+      <button type="button" [class.activo]="seccionPanel === 'dashboard'" (click)="cambiarSeccion('dashboard')">
+        Dashboard
       </button>
 
-    </form>
+      <button type="button" [class.activo]="seccionPanel === 'alimentos'" (click)="cambiarSeccion('alimentos')">
+        Alimentos
+      </button>
 
-  </div>
+      <button type="button" [class.activo]="seccionPanel === 'donadores'" (click)="cambiarSeccion('donadores')">
+        Donadores
+      </button>
+
+      <button type="button" [class.activo]="seccionPanel === 'donaciones'" (click)="cambiarSeccion('donaciones')">
+        Donaciones
+      </button>
+
+      <button type="button" [class.activo]="seccionPanel === 'distribuciones'" (click)="cambiarSeccion('distribuciones')">
+        Distribuciones
+      </button>
+
+      <button type="button" [class.activo]="seccionPanel === 'inventario'" (click)="cambiarSeccion('inventario')">
+        Inventario
+      </button>
+    </nav>
+
+    <p class="mensaje-sidebar">
+      Juntos contra el hambre.
+    </p>
+
+  </aside>
+
+  <main class="contenido-panel">
+
+    <div class="encabezado-panel">
+      <div>
+        <h1>Panel Administrativo</h1>
+        <p>Gestión de alimentos, donadores y donaciones del sistema.</p>
+      </div>
+
+      <div class="admin-info">
+        <span>Administrador</span>
+      </div>
+    </div>
+
+    <div class="dashboard-grid" *ngIf="seccionPanel === 'dashboard'">
+
+      <div class="stat-card">
+        <h3>Alimentos</h3>
+        <p>Registro de alimentos disponibles.</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Donadores</h3>
+        <p>Personas o entidades registradas.</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Donaciones</h3>
+        <p>Ingresos registrados al sistema.</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Inventario</h3>
+        <p>Control de stock disponible.</p>
+      </div>
+
+    </div>
+
+    <div class="panel-card" *ngIf="seccionPanel === 'alimentos'">
+      <h2>Registrar Alimento</h2>
+
+      <form class="formulario-panel" (ngSubmit)="guardarAlimento()">
+
+        <div class="campo">
+          <label>Nombre del alimento</label>
+          <input type="text" [(ngModel)]="alimento.nombre" name="nombreAlimento" placeholder="Ejemplo: Arroz, papa, fideos">
+        </div>
+
+        <div class="campo">
+          <label>Descripción</label>
+          <input type="text" [(ngModel)]="alimento.descripcion" name="descripcionAlimento" placeholder="Ejemplo: Bolsa de arroz">
+        </div>
+
+        <div class="campo">
+          <label>Unidad de medida</label>
+          <select [(ngModel)]="alimento.unidadMedida" name="unidadMedidaAlimento">
+            <option value="">Seleccione unidad</option>
+            <option value="kg">Kilogramos</option>
+            <option value="unidad">Unidad</option>
+            <option value="litro">Litro</option>
+          </select>
+        </div>
+
+        <button type="submit">Guardar alimento</button>
+
+      </form>
+    </div>
+
+    <div class="panel-card" *ngIf="seccionPanel === 'donadores'">
+      <h2>Registrar Donador</h2>
+
+      <form class="formulario-panel" (ngSubmit)="guardarUsuario()">
+
+        <div class="campo">
+          <label>Nombre</label>
+          <input type="text" [(ngModel)]="usuario.nombre" name="nombreUsuario" placeholder="Nombre del donador">
+        </div>
+
+        <div class="campo">
+          <label>Email</label>
+          <input type="email" [(ngModel)]="usuario.email" name="emailUsuario" placeholder="Correo electrónico">
+        </div>
+
+        <div class="campo">
+          <label>Teléfono</label>
+          <input type="text" [(ngModel)]="usuario.telefono" name="telefonoUsuario" placeholder="Número telefónico">
+        </div>
+
+        <button type="submit">Registrar donador</button>
+
+      </form>
+    </div>
+
+    <div class="panel-card" *ngIf="seccionPanel === 'donaciones'">
+      <h2>Registrar Donación</h2>
+      <p>Luego conectaremos donador + alimento.</p>
+    </div>
+
+    <div class="panel-card" *ngIf="seccionPanel === 'distribuciones'">
+      <h2>Distribuciones</h2>
+      <p>Luego conectaremos beneficiarios y salida de alimentos.</p>
+    </div>
+
+    <div class="panel-card" *ngIf="seccionPanel === 'inventario'">
+      <h2>Inventario</h2>
+      <p>Visualización de stock disponible.</p>
+    </div>
+
+<div class="panel-card" *ngIf="seccionPanel === 'donaciones'">
+  <h2>Registrar Donación</h2>
+
+  <form class="formulario-panel" (ngSubmit)="guardarDonacion()">
+
+    <div class="campo">
+      <label>ID Donador</label>
+      <input type="number" [(ngModel)]="donacion.usuario.id" name="usuarioId">
+    </div>
+
+    <div class="campo">
+      <label>ID Alimento</label>
+      <input type="number" [(ngModel)]="donacion.alimento.id" name="alimentoId">
+    </div>
+
+    <div class="campo">
+      <label>Cantidad</label>
+      <input type="number" [(ngModel)]="donacion.cantidad" name="cantidad">
+    </div>
+
+    <button type="submit">Registrar donación</button>
+
+  </form>
+</div>
+
+
+  </main>
 
 </section>

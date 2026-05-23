@@ -1,9 +1,6 @@
-/* =========================================
-   SECCIÓN MISIÓN Y VISIÓN
-   ========================================= */
 .seccion {
   padding: 80px 5%;
-  background-color: #f9f9fa; /* Un gris muy sutil para resaltar las tarjetas blancas */
+  background-color: #f9f9fa; 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -12,7 +9,6 @@
   margin: 0 auto;
 }
 
-/* --- CABECERA DE LA SECCIÓN --- */
 .mision-vision-header {
   text-align: center;
   margin-bottom: 60px;
@@ -25,7 +21,7 @@
 }
 
 .mision-vision-header h2 span {
-  color: #f28c00; /* Naranja corporativo del header */
+  color: #f28c00; 
 }
 
 .linea-mv {
@@ -41,14 +37,12 @@
   font-size: 1.2rem;
 }
 
-/* --- CONTENEDOR PRINCIPAL --- */
 .mision-vision-container {
   display: flex;
   flex-direction: column;
   gap: 60px;
 }
 
-/* --- CAJAS DE INFORMACIÓN (Alternadas) --- */
 .info-box {
   display: flex;
   align-items: stretch;
@@ -85,7 +79,6 @@
   text-align: justify;
 }
 
-/* Placeholder para cuando agreguen las imágenes reales */
 .imagen-mv-placeholder {
   flex: 1;
   background-color: #e9ecef;
@@ -105,7 +98,6 @@
   transform: scale(1.02);
 }
 
-/* --- SECCIÓN DE IMPACTO (Tarjetas inferiores) --- */
 .impacto-mv {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -126,7 +118,7 @@
 .impacto-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-  border-bottom: 5px solid #f28c00; /* Efecto naranja al pasar el mouse */
+  border-bottom: 5px solid #f28c00; 
 }
 
 .impacto-card span {
@@ -147,11 +139,8 @@
   margin: 0;
 }
 
-/* =========================================
-   RESPONSIVE (Tablets y Celulares)
-   ========================================= */
 
-/* Tablets (hasta 992px) */
+
 @media screen and (max-width: 992px) {
   .info-box {
     flex-direction: column;
@@ -159,17 +148,16 @@
     padding: 30px;
   }
   
-  /* Hacemos que la imagen siempre quede arriba del texto en móviles */
   .mision-box {
     flex-direction: column-reverse;
   }
   
   .vision-box {
-    flex-direction: column; /* Como la imagen está primera en el HTML, bajará el texto */
+    flex-direction: column; 
   }
 
   .info-content p {
-    text-align: center; /* Mejor lectura en dispositivos pequeños */
+    text-align: center; 
   }
 
   .imagen-mv-placeholder {
@@ -178,7 +166,7 @@
   }
 
   .impacto-mv {
-    grid-template-columns: repeat(2, 1fr); /* Pasa de 4 a 2 columnas */
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
@@ -193,7 +181,7 @@
   }
 
   .impacto-mv {
-    grid-template-columns: 1fr; /* Pasa de 2 a 1 columna (una tarjeta debajo de otra) */
+    grid-template-columns: 1fr; 
   }
   
   .info-box {

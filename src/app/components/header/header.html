@@ -1,7 +1,4 @@
-
-
-<!-- HEADER NEGRO -->
-<header class="header-top">
+<header class="header-top" [class.active]="menuAbierto()">
   <div class="contenedor-top">
     <nav>
       <ul>
@@ -16,7 +13,6 @@
   </div>
 </header>
 
-<!-- HEADER NARANJA -->
 <div class="sub-header">
   <div class="contenedor-sub">
 
@@ -24,7 +20,11 @@
       <img src="assets/images/lOGOBANNERJPG.jpg" alt="Banco de Alimentos">
     </div>
 
-    <nav class="menu-blanco">
+    <button class="mobile-menu-btn" (click)="toggleMenu()">
+      ☰ Menú
+    </button>
+
+    <nav class="menu-blanco" [class.active]="menuAbierto()">
       <ul>
         <li><a (click)="mostrarSeccion('quienes-somos')">Quiénes Somos</a></li>
         <li><a (click)="mostrarSeccion('que-hacemos')">Qué Hacemos</a></li>
@@ -34,7 +34,7 @@
 
         <li class="menu-dropdown">
           <a class="btn-menu">
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search"></i> Buscar
           </a>
 
           <div class="dropdown-menu">
@@ -62,5 +62,3 @@
 
   </div>
 </div>
-
-

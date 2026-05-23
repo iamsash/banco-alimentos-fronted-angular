@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, FormsModule],
+  standalone: true, 
+  imports: [CommonModule, FormsModule], 
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
 export class HeaderComponent {
 
+  
   busqueda: string = '';
 
   menuItems = [
@@ -28,6 +30,8 @@ export class HeaderComponent {
 
   mostrarSeccion(seccion: string) {
     console.log('Sección seleccionada:', seccion);
+    
+    this.menuAbierto.set(false);
   }
 
   filtrarMenu() {
@@ -35,5 +39,11 @@ export class HeaderComponent {
       item.nombre.toLowerCase().includes(this.busqueda.toLowerCase())
     );
   }
-}
 
+  
+  menuAbierto = signal(false);
+
+  toggleMenu() {
+    this.menuAbierto.update(valor => !valor);
+  }
+}

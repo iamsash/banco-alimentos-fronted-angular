@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+// Importamos tu nuevo componente
+import { UsuarioCrudComponent } from '../usuario-crud/usuario-crud'; 
 
 @Component({
   selector: 'app-mision-vision',
   standalone: true,
-  imports: [CommonModule],
+  // Lo agregamos a los imports de este componente
+  imports: [CommonModule, UsuarioCrudComponent], 
   templateUrl: './mision-vision.html',
   styleUrl: './mision-vision.css',
 })

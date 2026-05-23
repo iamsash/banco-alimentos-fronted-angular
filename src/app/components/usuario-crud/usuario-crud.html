@@ -1,0 +1,41 @@
+<div class="crud-container">
+  <h2>Gestión de Usuarios</h2>
+
+  <div class="form-box">
+    <h3>Registrar Nuevo Usuario</h3>
+    <form (ngSubmit)="registrar()">
+      <input type="text" [(ngModel)]="nuevoUsuario().nombre" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" [(ngModel)]="nuevoUsuario().email" name="email" placeholder="Correo electrónico" required>
+      <input type="text" [(ngModel)]="nuevoUsuario().telefono" name="telefono" placeholder="Teléfono">
+      <input type="text" [(ngModel)]="nuevoUsuario().dni" name="dni" placeholder="DNI">
+      <input type="text" [(ngModel)]="nuevoUsuario().direccion" name="direccion" placeholder="Dirección">
+      <button type="submit">Guardar</button>
+    </form>
+  </div>
+
+  <div class="table-box">
+    <h3>Usuarios Registrados</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of usuarios()">
+          <td>{{ user.id }}</td>
+          <td>{{ user.nombre }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.telefono }}</td>
+          <td>
+            <button class="btn-delete" (click)="borrar(user.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

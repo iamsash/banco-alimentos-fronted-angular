@@ -1,5 +1,5 @@
 .footer {
-  background-color: #111111; /* Color oscuro que combina con el Header-top */
+  background-color: #111111; 
   color: #ffffff;
   padding: 60px 5% 20px 5%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -19,7 +19,7 @@
 }
 
 .footer-column h3 {
-  color: #f28c00; /* Naranja corporativo */
+  color: #f28c00; 
   font-size: 1.4rem;
   margin-bottom: 20px;
   font-weight: 600;
@@ -68,7 +68,7 @@
 /* === RESPONSIVE === */
 @media screen and (max-width: 768px) {
   .footer-container {
-    flex-direction: column; /* De tres columnas pasa a una debajo de otra */
+    flex-direction: column; 
     text-align: center;
     gap: 30px;
   }

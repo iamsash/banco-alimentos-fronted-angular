@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header';
-import { SliderComponent } from './components/slider/slider';
-import { QuienesSomoscomponent } from './components/quienes-somos/quienes-somos';
-import { QueHacemosComponent } from './components/que-hacemos/que-hacemos';
-import { MisionVisionComponent } from './components/mision-vision/mision-vision';
-import { DonacionImpuestosComponent } from './components/donacion-impuestos/donacion-impuestos';
-import { DonarComponent } from './components/donar/donar';
+import { FooterComponent } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, SliderComponent, QuienesSomoscomponent, QueHacemosComponent, 
-    MisionVisionComponent, DonacionImpuestosComponent, DonarComponent], 
+  imports: [ 
+    CommonModule, 
+    RouterOutlet, 
+    HeaderComponent, 
+    FooterComponent 
+  ], 
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

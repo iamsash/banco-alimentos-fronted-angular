@@ -7,7 +7,6 @@ describe('UsuarioService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      // Necesitamos proveer HttpClient para que el test no falle
       providers: [provideHttpClient()] 
     });
     service = TestBed.inject(UsuarioService);

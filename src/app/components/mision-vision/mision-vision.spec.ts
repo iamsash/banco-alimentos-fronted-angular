@@ -1,17 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { MisionVisionComponent } from './mision-vision';
 
-import { MisionVision } from './mision-vision';
-
-describe('MisionVision', () => {
-  let component: MisionVision;
-  let fixture: ComponentFixture<MisionVision>;
+describe('MisionVisionComponent', () => {
+  let component: MisionVisionComponent;
+  let fixture: ComponentFixture<MisionVisionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MisionVision],
+      imports: [MisionVisionComponent],
+      // Agregamos esto porque MisionVision ahora renderiza tu CRUD que usa base de datos
+      providers: [provideHttpClient()] 
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MisionVision);
+    fixture = TestBed.createComponent(MisionVisionComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

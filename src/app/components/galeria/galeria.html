@@ -1,0 +1,20 @@
+<section id="galeria" class="seccion-galeria">
+  <div class="contenedor-galeria">
+    
+    <div class="cabecera-galeria">
+      <h2>Nuestra <span>Galería</span></h2>
+      <div class="linea-galeria"></div>
+      <p>Un vistazo a nuestro trabajo diario y el impacto que logramos juntos.</p>
+    </div>
+
+    <div class="grid-fotos">
+      <div class="foto-card" *ngFor="let foto of fotos">
+        <div class="foto-placeholder">
+          <img [src]="foto.url" [alt]="foto.alt" onerror="this.style.display='none'">
+          <span class="texto-alternativo">{{ foto.alt }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

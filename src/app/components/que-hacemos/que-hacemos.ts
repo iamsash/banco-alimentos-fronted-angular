@@ -14,17 +14,17 @@ export class QueHacemosComponent {
     {
       icono: '🚚',
       titulo: 'Rescatamos',
-      descripcion: 'Recuperamos alimentos aptos para el consumo en tiendas, mercados y empresas aliadas.'
+      descripcion: 'Rescatamos alimentos en perfecto estado de empresas, supermercados, mercados y campos agrícolas antes de que sean desechados.'
     },
     {
       icono: '📦',
       titulo: 'Clasificamos',
-      descripcion: 'Verificamos, ordenamos y seleccionamos los alimentos para asegurar su calidad.'
+      descripcion: 'Nuestros voluntarios revisan, seleccionan y almacenan cuidadosamente los productos bajo estrictos estándares de calidad y sanidad.'
     },
     {
       icono: '🤝',
       titulo: 'Distribuimos',
-      descripcion: 'Entregamos alimentos a organizaciones y familias en situación de vulnerabilidad.'
+      descripcion: 'Entregamos los alimentos de manera equitativa a organizaciones sociales, comedores y familias en situación de vulnerabilidad.'
     },
     {
       icono: '❤️',

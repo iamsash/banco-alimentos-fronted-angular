@@ -120,3 +120,53 @@
   color: white;
   border-radius: 5px;
 }
+
+
+
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .header-top,
+  .menu-blanco ul {
+    display: none;
+  }
+
+  .contenedor-sub {
+    flex-wrap: wrap; 
+  }
+
+  .header-top.active,
+  .menu-blanco.active ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    padding: 20px 0;
+  }
+
+  .menu-blanco.active {
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+    margin-top: 10px;
+  }
+}

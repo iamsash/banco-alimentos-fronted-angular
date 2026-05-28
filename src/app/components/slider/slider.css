@@ -71,3 +71,22 @@
 .indicator.active {
   background: #f28c00;
 }
+@media screen and (max-width: 768px) {
+  .slider-container {
+    width: 95%; 
+  }
+
+  .slider-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .prev {
+    left: 5px; 
+  }
+
+  .next {
+    right: 5px;
+  }
+}

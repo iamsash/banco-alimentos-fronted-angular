@@ -15,9 +15,19 @@
         Alimentos
       </button>
 
+      <button type="button" [class.activo]="seccionPanel === 'categorias'" (click)="cambiarSeccion('categorias')">
+  Categorías
+</button>
+
+
       <button type="button" [class.activo]="seccionPanel === 'donadores'" (click)="cambiarSeccion('donadores')">
         Donadores
       </button>
+
+      
+<button type="button" [class.activo]="seccionPanel === 'beneficiarios'" (click)="cambiarSeccion('beneficiarios')">
+  Beneficiarios
+</button>
 
       <button type="button" [class.activo]="seccionPanel === 'donaciones'" (click)="cambiarSeccion('donaciones')">
         Donaciones
@@ -73,6 +83,16 @@
         <p>Control de stock disponible.</p>
       </div>
 
+      <div class="stat-card">
+  <h3>Categorías</h3>
+  <p>Clasificación de alimentos.</p>
+</div>
+
+<div class="stat-card">
+  <h3>Beneficiarios</h3>
+  <p>Personas o entidades que reciben apoyo.</p>
+</div>
+
     </div>
 
     <div class="panel-card" *ngIf="seccionPanel === 'alimentos'">
@@ -100,7 +120,21 @@
           </select>
         </div>
 
+
+        <div class="campo">
+  <label>Categoría</label>
+  <select [(ngModel)]="alimento.categoria!.id" name="categoriaAlimento">
+    <option [value]="0">Seleccione categoría</option>
+
+    <option *ngFor="let categoria of categorias" [value]="categoria.id">
+      {{ categoria.nombre }}
+    </option>
+  </select>
+</div>
+
         <button type="submit">Guardar alimento</button>
+
+        
 
       </form>
     </div>
@@ -130,20 +164,255 @@
       </form>
     </div>
 
-    <div class="panel-card" *ngIf="seccionPanel === 'donaciones'">
-      <h2>Registrar Donación</h2>
-      <p>Luego conectaremos donador + alimento.</p>
+<div class="panel-card" *ngIf="seccionPanel === 'categorias'">
+  <h2>Registrar Categoría</h2>
+
+  <form class="formulario-panel" (ngSubmit)="guardarCategoria()">
+    <div class="campo">
+      <label>Nombre de categoría</label>
+      <input
+        type="text"
+        [(ngModel)]="categoria.nombre"
+        name="nombreCategoria"
+        placeholder="Ejemplo: Cereales, lácteos, enlatados">
     </div>
 
-    <div class="panel-card" *ngIf="seccionPanel === 'distribuciones'">
-      <h2>Distribuciones</h2>
-      <p>Luego conectaremos beneficiarios y salida de alimentos.</p>
+    <div class="campo">
+      <label>Descripción</label>
+      <input
+        type="text"
+        [(ngModel)]="categoria.descripcion"
+        name="descripcionCategoria"
+        placeholder="Descripción de la categoría">
     </div>
 
-    <div class="panel-card" *ngIf="seccionPanel === 'inventario'">
-      <h2>Inventario</h2>
-      <p>Visualización de stock disponible.</p>
+    <button type="submit">Guardar categoría</button>
+  </form>
+
+  <h3>Listado de categorías</h3>
+
+  <table class="tabla-panel">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let categoria of categorias">
+        <td>{{ categoria.id }}</td>
+        <td>{{ categoria.nombre }}</td>
+        <td>{{ categoria.descripcion }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-card" *ngIf="seccionPanel === 'beneficiarios'">
+  <h2>Registrar Beneficiario</h2>
+
+  <form class="formulario-panel" (ngSubmit)="guardarBeneficiario()">
+
+    <div class="campo">
+      <label>Nombre</label>
+      <input
+        type="text"
+        [(ngModel)]="beneficiario.nombre"
+        name="nombreBeneficiario"
+        placeholder="Nombre del beneficiario">
     </div>
+
+    <div class="campo">
+      <label>Tipo</label>
+      <select [(ngModel)]="beneficiario.tipo" name="tipoBeneficiario">
+        <option value="">Seleccione tipo</option>
+        <option value="Persona">Persona</option>
+        <option value="Familia">Familia</option>
+        <option value="Comedor popular">Comedor popular</option>
+        <option value="Institución">Institución</option>
+      </select>
+    </div>
+
+    <div class="campo">
+      <label>Dirección</label>
+      <input
+        type="text"
+        [(ngModel)]="beneficiario.direccion"
+        name="direccionBeneficiario"
+        placeholder="Dirección">
+    </div>
+
+    <div class="campo">
+      <label>Teléfono</label>
+      <input
+        type="text"
+        [(ngModel)]="beneficiario.telefono"
+        name="telefonoBeneficiario"
+        placeholder="Número telefónico">
+    </div>
+
+    <button type="submit">Guardar beneficiario</button>
+
+  </form>
+
+  <h3>Listado de beneficiarios</h3>
+
+  <table class="tabla-panel">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let beneficiario of beneficiarios">
+        <td>{{ beneficiario.id }}</td>
+        <td>{{ beneficiario.nombre }}</td>
+        <td>{{ beneficiario.tipo }}</td>
+        <td>{{ beneficiario.direccion }}</td>
+        <td>{{ beneficiario.telefono }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+   <div class="panel-card" *ngIf="seccionPanel === 'distribuciones'">
+
+  <h2>Registrar Distribución</h2>
+
+  <form class="formulario-panel" (ngSubmit)="guardarDistribucion()">
+
+    <div class="campo">
+      <label>Beneficiario</label>
+
+      <select
+        [(ngModel)]="distribucion.beneficiario.id"
+        name="beneficiarioId">
+
+        <option [ngValue]="0">Seleccione beneficiario</option>
+
+<option *ngFor="let beneficiario of beneficiarios" [ngValue]="beneficiario.id">
+  {{ beneficiario.nombre }}
+</option>
+
+      </select>
+    </div>
+
+    <div class="campo">
+      <label>Alimento</label>
+
+      <select
+        [(ngModel)]="distribucion.alimento.id"
+        name="alimentoDistribucion">
+
+        <option [ngValue]="0">Seleccione alimento</option>
+
+<option *ngFor="let alimento of alimentos" [ngValue]="alimento.id">
+  {{ alimento.nombre }}
+</option>
+
+      </select>
+    </div>
+
+    <div class="campo">
+      <label>Cantidad</label>
+
+      <input
+        type="number"
+        [(ngModel)]="distribucion.cantidad"
+        name="cantidadDistribucion"
+        placeholder="Cantidad entregada">
+
+    </div>
+
+    <button type="submit">
+      Registrar distribución
+    </button>
+
+  </form>
+
+  <h3>Listado de distribuciones</h3>
+
+  <table class="tabla-panel">
+
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Beneficiario</th>
+        <th>Alimento</th>
+        <th>Cantidad</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let distribucion of distribuciones">
+
+        <td>{{ distribucion.id }}</td>
+
+        <td>
+          {{ distribucion.beneficiario?.nombre }}
+        </td>
+
+        <td>
+          {{ distribucion.alimento?.nombre }}
+        </td>
+
+        <td>
+          {{ distribucion.cantidad }}
+        </td>
+
+        <td>
+          {{ distribucion.fecha }}
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+
+  <div class="panel-card" *ngIf="seccionPanel === 'inventario'">
+  <h2>Inventario</h2>
+
+  <table class="tabla-panel">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Alimento</th>
+        <th>Categoría</th>
+        <th>Unidad</th>
+        <th>Total donado</th>
+        <th>Total distribuido</th>
+        <th>Stock actual</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of inventario">
+        <td>{{ item.alimentoId }}</td>
+        <td>{{ item.alimentoNombre }}</td>
+        <td>{{ item.categoriaNombre }}</td>
+        <td>{{ item.unidadMedida }}</td>
+        <td>{{ item.totalDonado }}</td>
+        <td>{{ item.totalDistribuido }}</td>
+        <td>{{ item.stockActual }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <div class="panel-card" *ngIf="seccionPanel === 'donaciones'">
 
   <h2>Registrar Donación</h2>

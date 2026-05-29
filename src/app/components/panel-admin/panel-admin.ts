@@ -11,6 +11,18 @@ import { UsuarioService } from '../../services/usuario';
 import { Donacion } from '../../models/donacion';
 import { DonacionService } from '../../services/donacion';
 
+import { Categoria } from '../../models/categoria';
+import { CategoriaService } from '../../services/categoria';
+
+import { Beneficiario } from '../../models/beneficiario';
+import { BeneficiarioService } from '../../services/beneficiario';
+
+import { Distribucion } from '../../models/distribucion';
+import { DistribucionService } from '../../services/distribucion';
+
+import { Inventario } from '../../models/inventario';
+import { InventarioService } from '../../services/inventario';
+
 @Component({
   selector: 'app-panel-admin',
   standalone: true,
@@ -22,11 +34,16 @@ export class PanelAdminComponent implements OnInit {
 
   seccionPanel: string = 'dashboard';
 
-  alimento: Alimento = {
+alimento: Alimento = {
+  nombre: '',
+  descripcion: '',
+  unidadMedida: '',
+  categoria: {
+    id: 0,
     nombre: '',
-    descripcion: '',
-    unidadMedida: ''
-  };
+    descripcion: ''
+  }
+};
 
   usuario: Usuario = {
     nombre: '',
@@ -38,55 +55,139 @@ export class PanelAdminComponent implements OnInit {
   donacion: Donacion = {
     cantidad: 0,
     fecha: new Date().toISOString().split('T')[0],
-    usuario: {
-      id: 0
-    },
-    alimento: {
-      id: 0
-    }
+    usuario: { id: 0 },
+    alimento: { id: 0 }
   };
+
+  categoria: Categoria = {
+    nombre: '',
+    descripcion: '',
+    fechaRegistro: new Date().toISOString().split('T')[0]
+  };
+
+  beneficiario: Beneficiario = {
+  nombre: '',
+  tipo: '',
+  direccion: '',
+  telefono: '',
+  fechaRegistro: new Date().toISOString().split('T')[0]
+};
+
+distribucion: Distribucion = {
+  cantidad: 0,
+  beneficiario: {
+    id: 0
+  },
+  alimento: {
+    id: 0
+  }
+};
+
+
+
   usuarios: Usuario[] = [];
-alimentos: Alimento[] = [];
+  alimentos: Alimento[] = [];
+  categorias: Categoria[] = [];
+  beneficiarios: Beneficiario[] = [];
+distribuciones: Distribucion[] = [];
+inventario: Inventario[] = [];
+
 
   constructor(
-
-    
-
-    
     private alimentoService: AlimentoService,
     private usuarioService: UsuarioService,
-    private donacionService: DonacionService
+    private donacionService: DonacionService,
+    private categoriaService: CategoriaService,
+    private beneficiarioService: BeneficiarioService,
+    private distribucionService: DistribucionService,
+    private inventarioService: InventarioService
   ) {}
 
-ngOnInit(): void {
+  ngOnInit(): void {
+    this.listarUsuarios();
+    this.listarAlimentos();
+    this.listarCategorias();
+    this.listarBeneficiarios();
+    this.listarDistribuciones();
+    this.listarInventario();
+  }
+
+  cambiarSeccion(seccion: string) {
+    this.seccionPanel = seccion;
+  }
+
+  listarUsuarios() {
     this.usuarioService.listar().subscribe({
       next: (data) => {
         this.usuarios = data;
       },
       error: (error) => {
-        console.error('ERROR COMPLETO:', error);
-        console.error('STATUS:', error.status);
-        console.error('MENSAJE:', error.error);
+        console.error(error);
         alert('Error al cargar usuarios');
       }
     });
+  }
 
+  listarAlimentos() {
     this.alimentoService.listar().subscribe({
       next: (data) => {
         this.alimentos = data;
       },
       error: (error) => {
-        console.error('ERROR COMPLETO:', error);
-        console.error('STATUS:', error.status);
-        console.error('MENSAJE:', error.error);
+        console.error(error);
         alert('Error al cargar alimentos');
       }
     });
+  }
+
+  listarCategorias() {
+    this.categoriaService.listar().subscribe({
+      next: (data) => {
+        this.categorias = data;
+      },
+      error: (error) => {
+        console.error(error);
+        alert('Error al cargar categorías');
+      }
+    });
+  }
+
+  listarBeneficiarios() {
+  this.beneficiarioService.listar().subscribe({
+    next: (data) => {
+      this.beneficiarios = data;
+    },
+    error: (error) => {
+      console.error(error);
+      alert('Error al cargar beneficiarios');
+    }
+  });
 }
 
-  cambiarSeccion(seccion: string) {
-    this.seccionPanel = seccion;
-  }
+listarDistribuciones() {
+  this.distribucionService.listar().subscribe({
+    next: (data) => {
+      this.distribuciones = data;
+    },
+    error: (error) => {
+      console.error(error);
+      alert('Error al cargar distribuciones');
+    }
+  });
+}
+
+listarInventario() {
+  this.inventarioService.listar().subscribe({
+    next: (data) => {
+      this.inventario = data;
+    },
+    error: (error) => {
+      console.error(error);
+      alert('Error al cargar inventario');
+    }
+  });
+}
+
 
   guardarAlimento() {
     this.alimentoService.guardar(this.alimento).subscribe({
@@ -94,11 +195,17 @@ ngOnInit(): void {
         console.log(data);
         alert('Alimento registrado correctamente');
 
-        this.alimento = {
-          nombre: '',
-          descripcion: '',
-          unidadMedida: ''
-        };
+      this.alimento = {
+  nombre: '',
+  descripcion: '',
+  unidadMedida: '',
+  categoria: {
+    id: 0,
+    nombre: '',
+    descripcion: ''
+  }
+};
+        this.listarAlimentos();
       },
       error: (error) => {
         console.error(error);
@@ -119,11 +226,11 @@ ngOnInit(): void {
           telefono: '',
           fechaRegistro: new Date().toISOString().split('T')[0]
         };
+
+        this.listarUsuarios();
       },
       error: (error) => {
-        console.error('ERROR COMPLETO:', error);
-        console.error('STATUS:', error.status);
-        console.error('MENSAJE:', error.error);
+        console.error(error);
         alert('Error al registrar donador');
       }
     });
@@ -138,25 +245,83 @@ ngOnInit(): void {
         this.donacion = {
           cantidad: 0,
           fecha: new Date().toISOString().split('T')[0],
-          usuario: {
-            id: 0
-          },
-          alimento: {
-            id: 0
-          }
+          usuario: { id: 0 },
+          alimento: { id: 0 }
         };
       },
       error: (error) => {
-        console.error('ERROR COMPLETO:', error);
-        console.error('STATUS:', error.status);
-        console.error('MENSAJE:', error.error);
+        console.error(error);
         alert('Error al registrar donación');
       }
     });
   }
 
+  guardarCategoria() {
+    this.categoriaService.crear(this.categoria).subscribe({
+      next: (data) => {
+        console.log(data);
+        alert('Categoría registrada correctamente');
+
+        this.categoria = {
+          nombre: '',
+          descripcion: '',
+          fechaRegistro: new Date().toISOString().split('T')[0]
+        };
+
+        this.listarCategorias();
+      },
+      error: (error) => {
+        console.error(error);
+        alert('Error al registrar categoría');
+      }
+    });
+  }
+
+  guardarBeneficiario() {
+  this.beneficiarioService.guardar(this.beneficiario).subscribe({
+    next: (data) => {
+      console.log(data);
+      alert('Beneficiario registrado correctamente');
+
+      this.beneficiario = {
+        nombre: '',
+        tipo: '',
+        direccion: '',
+        telefono: '',
+        fechaRegistro: new Date().toISOString().split('T')[0]
+      };
+
+      this.listarBeneficiarios();
+    },
+    error: (error) => {
+      console.error(error);
+      alert('Error al registrar beneficiario');
+    }
+  });
+
+  
+}
+
+
+guardarDistribucion() {
+  this.distribucionService.guardar(this.distribucion).subscribe({
+    next: (data) => {
+      console.log(data);
+      alert('Distribución registrada correctamente');
+
+      this.distribucion = {
+        cantidad: 0,
+        beneficiario: { id: 0 },
+        alimento: { id: 0 }
+      };
+
+      this.listarDistribuciones();
+    },
+    error: (error) => {
+      console.error(error);
+      alert('Error al registrar distribución');
+    }
+  });
+}
 
 }
-  
-
-

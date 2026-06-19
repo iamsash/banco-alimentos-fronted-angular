@@ -95,7 +95,7 @@
 
     </div>
 
-    <div class="panel-card" *ngIf="seccionPanel === 'alimentos'">
+   <div class="panel-card" *ngIf="seccionPanel === 'alimentos'">
       <h2>Registrar Alimento</h2>
 
       <form class="formulario-panel" (ngSubmit)="guardarAlimento()">
@@ -103,11 +103,17 @@
         <div class="campo">
           <label>Nombre del alimento</label>
           <input type="text" [(ngModel)]="alimento.nombre" name="nombreAlimento" placeholder="Ejemplo: Arroz, papa, fideos">
+          <div *ngIf="erroresAlimento.nombre" style="color: #dc3545; font-size: 0.85em; margin-top: 5px;">
+            {{ erroresAlimento.nombre }}
+          </div>
         </div>
 
         <div class="campo">
           <label>Descripción</label>
           <input type="text" [(ngModel)]="alimento.descripcion" name="descripcionAlimento" placeholder="Ejemplo: Bolsa de arroz">
+          <div *ngIf="erroresAlimento.descripcion" style="color: #dc3545; font-size: 0.85em; margin-top: 5px;">
+            {{ erroresAlimento.descripcion }}
+          </div>
         </div>
 
         <div class="campo">
@@ -118,25 +124,26 @@
             <option value="unidad">Unidad</option>
             <option value="litro">Litro</option>
           </select>
+          <div *ngIf="erroresAlimento.unidadMedida" style="color: #dc3545; font-size: 0.85em; margin-top: 5px;">
+            {{ erroresAlimento.unidadMedida }}
+          </div>
         </div>
 
-
         <div class="campo">
-  <label>Categoría</label>
-  <select [(ngModel)]="alimento.categoria!.id" name="categoriaAlimento">
-    <option [value]="0">Seleccione categoría</option>
-
-    <option *ngFor="let categoria of categorias" [value]="categoria.id">
-      {{ categoria.nombre }}
-    </option>
-  </select>
-</div>
+          <label>Categoría</label>
+          <select [(ngModel)]="alimento.categoria!.id" name="categoriaAlimento">
+            <option [value]="0">Seleccione categoría</option>
+            <option *ngFor="let categoria of categorias" [value]="categoria.id">
+              {{ categoria.nombre }}
+            </option>
+          </select>
+        </div>
 
         <button type="submit">Guardar alimento</button>
 
         
-
       </form>
+
     </div>
 
     <div class="panel-card" *ngIf="seccionPanel === 'donadores'">
@@ -414,75 +421,42 @@
   </table>
 </div>
 <div class="panel-card" *ngIf="seccionPanel === 'donaciones'">
-
   <h2>Registrar Donación</h2>
 
   <form class="formulario-panel" (ngSubmit)="guardarDonacion()">
 
     <div class="campo">
-
       <label>Donador</label>
-
-      <select
-        [(ngModel)]="donacion.usuario.id"
-        name="usuarioId">
-
-        <option [value]="0">
-          Seleccione donador
-        </option>
-
-        <option
-          *ngFor="let usuario of usuarios"
-          [value]="usuario.id">
-
+      <select [(ngModel)]="donacion.usuario.id" name="usuarioId">
+        <option [value]="0">Seleccione donador</option>
+        <option *ngFor="let usuario of usuarios" [value]="usuario.id">
           {{ usuario.nombre }}
-
         </option>
-
       </select>
-
     </div>
 
     <div class="campo">
-
       <label>Alimento</label>
-
-      <select
-        [(ngModel)]="donacion.alimento.id"
-        name="alimentoId">
-
-        <option [value]="0">
-          Seleccione alimento
-        </option>
-
-        <option
-          *ngFor="let alimento of alimentos"
-          [value]="alimento.id">
-
+      <select [(ngModel)]="donacion.alimento.id" name="alimentoId">
+        <option [value]="0">Seleccione alimento</option>
+        <option *ngFor="let alimento of alimentos" [value]="alimento.id">
           {{ alimento.nombre }}
-
         </option>
-
       </select>
-
     </div>
 
     <div class="campo">
-
       <label>Cantidad</label>
-
-      <input
-        type="number"
-        [(ngModel)]="donacion.cantidad"
-        name="cantidad"
-        placeholder="Cantidad">
-
+      <input type="number" [(ngModel)]="donacion.cantidad" name="cantidad" placeholder="Cantidad">
+      <div *ngIf="erroresDonacion.cantidad" style="color: #dc3545; font-size: 0.85em; margin-top: 5px;">
+        {{ erroresDonacion.cantidad }}
+      </div>
     </div>
 
-    <button type="submit">
-      Registrar donación
-    </button>
+    <button type="submit">Registrar donación</button>
 
+    
   </form>
+
 
 </div>

@@ -34,6 +34,9 @@ export class PanelAdminComponent implements OnInit {
 
   seccionPanel: string = 'dashboard';
 
+  erroresAlimento: any = {};
+  erroresDonacion: any = {};
+
 alimento: Alimento = {
   nombre: '',
   descripcion: '',
@@ -190,6 +193,7 @@ listarInventario() {
 
 
   guardarAlimento() {
+    this.erroresAlimento = {};
     this.alimentoService.guardar(this.alimento).subscribe({
       next: (data) => {
         console.log(data);
@@ -208,8 +212,13 @@ listarInventario() {
         this.listarAlimentos();
       },
       error: (error) => {
-        console.error(error);
-        alert('Error al registrar alimento');
+        if (error.status === 400) {
+          this.erroresAlimento = error.error; 
+          console.log("Errores de validación:", this.erroresAlimento);
+        } else {
+          console.error(error);
+          alert('Error al registrar alimento');
+        }
       }
     });
   }
@@ -237,6 +246,7 @@ listarInventario() {
   }
 
   guardarDonacion() {
+    this.erroresDonacion = {};
     this.donacionService.guardar(this.donacion).subscribe({
       next: (data) => {
         console.log(data);
@@ -250,8 +260,12 @@ listarInventario() {
         };
       },
       error: (error) => {
-        console.error(error);
-        alert('Error al registrar donación');
+        if (error.status === 400) {
+          this.erroresDonacion = error.error; 
+        } else {
+          console.error(error);
+          alert('Error al registrar donación');
+        }
       }
     });
   }

@@ -15,6 +15,9 @@ import { VoluntariadoComponent } from './components/voluntariado/voluntariado';
 import { CorreoComponent } from './components/correo/correo';
 import { IntranetComponent } from './components/intranet/intranet';
 import { Footer } from './components/footer/footer';
+import { RouterOutlet } from '@angular/router';
+import { PanelTrabajador } from './components/panel-trabajador/panel-trabajador';
+
 
 @Component({
   selector: 'app-root',
@@ -22,7 +25,9 @@ import { Footer } from './components/footer/footer';
   imports: [HeaderComponent, SliderComponent, InicioComponent, QuienesSomoscomponent, QueHacemosComponent, 
     MisionVisionComponent, DonacionImpuestosComponent, DonarComponent, 
     AliadoComponent, BoletinesComponent, VoluntariadoComponent,
-     CorreoComponent, IntranetComponent, CommonModule, Footer, PanelAdminComponent], 
+     CorreoComponent, IntranetComponent, CommonModule, Footer, RouterOutlet,HeaderComponent,PanelTrabajador
+  , PanelAdminComponent], 
+
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -32,16 +37,32 @@ import { Footer } from './components/footer/footer';
 export class App {
 
   seccionActiva: string = 'inicio';
+  rolUsuario: string = '';
 
 cambiarSeccion(seccion: string) {
   this.seccionActiva = seccion;
 }
 
 abrirPanel() {
-  this.seccionActiva = 'panel-admin';
+    const usuarioLogueado = sessionStorage.getItem('usuario');
 
+    if (usuarioLogueado) {
+      const usuarioObj = JSON.parse(usuarioLogueado);
+      this.rolUsuario = usuarioObj.rol; 
+    }
+
+    if (this.rolUsuario === 'ADMIN') {
+      this.seccionActiva = 'panel-admin';
+    } else if (this.rolUsuario === 'TRABAJADOR') {
+      this.seccionActiva = 'panel-trabajador';
+    } else {
+      this.seccionActiva = 'panel-admin'; 
+    }
+  }
 }
-}
+
+
+
 
 
 

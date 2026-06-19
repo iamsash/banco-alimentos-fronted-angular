@@ -1,0 +1,375 @@
+/* GENERAL */
+
+#inicio {
+  background: #f5f5f5;
+}
+
+/* MENSAJE */
+
+.inicio-info {
+  background: linear-gradient(135deg, #f28c00, #ff6a00);
+  color: white;
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* PROYECTOS */
+
+.proyectos {
+  padding: 80px 20px;
+}
+
+.cards-container {
+  max-width: 1300px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.card.azul {
+  background: linear-gradient(180deg, #58aaf5, #3d7fd4);
+}
+
+.card.naranja {
+  background: linear-gradient(180deg, #ffb300, #f28c00);
+}
+
+.card.verde {
+  background: linear-gradient(180deg, #1fe37d, #00c767);
+}
+
+.card.morado {
+  background: linear-gradient(180deg, #9b59d0, #7d3cb5);
+}
+
+.card.rojo {
+  background: linear-gradient(180deg, #ff6b73, #f5424d);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-img {
+  height: 260px;
+  overflow: hidden;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 28px;
+  text-align: center;
+}
+
+.card-body p {
+  line-height: 1.9;
+  color: white;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.btn-card {
+  background: rgba(0,0,0,0.18);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-weight: 800;
+  display: inline-block;
+  backdrop-filter: blur(5px);
+  transition: 0.3s ease;
+}
+
+.btn-card:hover {
+  background: rgba(0,0,0,0.35);
+  transform: scale(1.05);
+}
+
+/* COMPROMISO */
+
+.compromiso {
+  padding: 80px 20px;
+  background: white;
+}
+
+.compromiso-container {
+  max-width: 1300px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.compromiso-texto h2 {
+  font-size: 48px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.compromiso-texto strong {
+  color: #f28c00;
+}
+
+.subtitulo {
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.descripcion {
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 35px;
+}
+
+.estadisticas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.item {
+  background: #fff8ef;
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+  border-left: 5px solid #f28c00;
+}
+
+.item h3 {
+  color: #f28c00;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.compromiso-video iframe {
+  width: 100%;
+  height: 420px;
+  border: none;
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* CAMPAÑAS */
+
+.campanas {
+  padding: 90px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #f28c00, #ff6a00);
+  color: white;
+}
+
+.subtitulo-campana {
+  font-size: 22px;
+  opacity: 0.9;
+}
+
+.campanas h2 {
+  font-size: 58px;
+  margin: 15px 0;
+  color: white;
+}
+
+.texto-campana {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* AYUDA */
+
+.ayuda-section {
+  padding: 90px 20px;
+  background: white;
+  text-align: center;
+}
+
+.contenido-ayuda h2 {
+  font-size: 50px;
+  margin-bottom: 18px;
+}
+
+.contenido-ayuda h3 {
+  font-size: 34px;
+  color: #f28c00;
+  margin-bottom: 15px;
+}
+
+.contenido-ayuda p {
+  color: #555;
+  font-size: 18px;
+}
+
+/* VIDEO CAMPAÑA */
+
+.campanas-section {
+  padding: 80px 20px;
+  background: #f5f5f5;
+}
+
+.titulo-campanas {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.titulo-campanas h2 {
+  font-size: 48px;
+}
+
+.video-campana {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 45px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.video-campana h3 {
+  margin-bottom: 25px;
+}
+
+.btn-video {
+  background: #f28c00;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 800;
+}
+
+/* LOGROS */
+
+.logros-voluntarios {
+  padding: 80px 20px;
+  background: white;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+
+  max-width: 1300px;
+  margin: auto;
+}
+
+.contenido-logros,
+.voluntarios-box {
+  background: #fff8ef;
+  padding: 45px;
+  border-radius: 22px;
+}
+
+.contenido-logros h2,
+.voluntarios-box h3 {
+  color: #f28c00;
+  margin-bottom: 20px;
+}
+
+/* ALIADOS */
+
+.aliados-section {
+  padding: 90px 20px;
+  background: #f5f5f5;
+}
+
+.aliados-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.aliados-header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.aliados-header h2 {
+  font-size: 50px;
+}
+
+.aliados-header p {
+  color: #666;
+}
+
+.slider-aliados {
+  display: flex;
+  justify-content: center;
+}
+
+.slider-circulo {
+  width: 220px;
+  height: 220px;
+  background: white;
+  border-radius: 50%;
+  padding: 25px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.slider-circulo img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+
+  .cards-container,
+  .compromiso-container,
+  .logros-voluntarios {
+    grid-template-columns: 1fr;
+  }
+
+  .estadisticas {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .inicio-info {
+    font-size: 20px;
+  }
+
+  .campanas h2,
+  .contenido-ayuda h2,
+  .aliados-header h2,
+  .titulo-campanas h2 {
+    font-size: 36px;
+  }
+
+  .compromiso-texto h2 {
+    font-size: 34px;
+  }
+
+  .video-campana,
+  .contenido-logros,
+  .voluntarios-box {
+    padding: 30px;
+  }
+}

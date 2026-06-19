@@ -1,16 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { QuienesSomoscomponent } from './quienes-somos';
 
-describe('QuienesSomoscomponent', () => {
-  let component: QuienesSomoscomponent;
-  let fixture: ComponentFixture<QuienesSomoscomponent>;
+import { PanelAdmin } from './panel-admin';
+
+describe('PanelAdmin', () => {
+  let component: PanelAdmin;
+  let fixture: ComponentFixture<PanelAdmin>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [QuienesSomoscomponent],
+      imports: [PanelAdmin],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(QuienesSomoscomponent);
+    fixture = TestBed.createComponent(PanelAdmin);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
@@ -19,6 +20,3 @@ describe('QuienesSomoscomponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-
-

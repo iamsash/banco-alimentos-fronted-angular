@@ -1,15 +1,37 @@
-<app-header></app-header>
+<app-header (seccionSeleccionada)="cambiarSeccion($event)"></app-header>
 
 <main class="contenedor-secciones">
 
-  <app-slider></app-slider>
+<app-inicio *ngIf="seccionActiva === 'inicio'"></app-inicio>
 
-  <app-quienes-somos></app-quienes-somos>
-    <app-que-hacemos></app-que-hacemos>
-    <app-mision-vision></app-mision-vision>
-    <app-donacion-impuestos></app-donacion-impuestos>
-    <app-donar></app-donar>
-  
+  <app-quienes-somos *ngIf="seccionActiva === 'quienes-somos'"></app-quienes-somos>
+
+  <app-que-hacemos *ngIf="seccionActiva === 'que-hacemos'"></app-que-hacemos>
+
+  <app-mision-vision *ngIf="seccionActiva === 'mision-vision'"></app-mision-vision>
+
+  <app-donacion-impuestos *ngIf="seccionActiva === 'donacion-impuestos'"></app-donacion-impuestos>
+
+  <app-donar *ngIf="seccionActiva === 'donar'"></app-donar>
+
+  <app-aliado *ngIf="seccionActiva === 'aliado'"></app-aliado>
+
+  <app-boletines *ngIf="seccionActiva === 'boletines'"></app-boletines>
+
+  <app-voluntariado *ngIf="seccionActiva === 'voluntariado'"></app-voluntariado>
+
+  <app-correo *ngIf="seccionActiva === 'correo'"></app-correo>
+
+<app-intranet
+  *ngIf="seccionActiva === 'intranet'"
+  (loginCorrecto)="abrirPanel()">
+</app-intranet>
+
+    <app-panel-admin *ngIf="seccionActiva === 'panel-admin'"></app-panel-admin>
 
 
 </main>
+
+
+
+<app-footer></app-footer>

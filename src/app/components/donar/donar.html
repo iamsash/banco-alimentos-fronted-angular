@@ -22,10 +22,11 @@
 
     <div class="donar-opciones">
 
-      <article
-        class="donar-card"
-        *ngFor="let opcion of opcionesDonacion"
-      >
+     <article
+  class="donar-card"
+  *ngFor="let opcion of opcionesDonacion"
+  [ngClass]="opcion.clase"
+>
 
         <h3>{{ opcion.titulo }}</h3>
 

@@ -1,0 +1,147 @@
+.quienes-somos {
+  background: #f5f5f5;
+  padding: 70px 20px;
+}
+
+.quienes-somos-box {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.quienes-somos-slider {
+  background: #e9e9e9;
+  border: 2px dashed #bbb;
+  border-radius: 22px;
+  min-height: 420px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.quienes-somos-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quienes-somos-texto {
+  background: #fff;
+  border-radius: 22px;
+  padding: 40px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  border-bottom: 4px solid #f28c00;
+}
+
+.quienes-somos-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #111;
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.quienes-somos-title::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background: #f28c00;
+  display: block;
+  margin-top: 12px;
+  border-radius: 30px;
+}
+
+.quienes-somos-info p {
+  color: #444;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.quienes-somos-info strong {
+  color: #087a3d;
+}
+
+.quienes-somos-lista {
+  margin-top: 25px;
+  background: #fff8ef;
+  border-radius: 18px;
+  padding: 25px;
+  border-left: 5px solid #f28c00;
+}
+
+.quienes-somos-lista h3 {
+  font-size: 20px;
+  color: #f28c00;
+  margin-bottom: 18px;
+}
+
+.quienes-somos-lista ol {
+  padding-left: 22px;
+}
+
+.quienes-somos-lista li {
+  margin-bottom: 10px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Recursos */
+.recursos-laterales {
+  max-width: 900px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.recurso-box {
+  background: #fff;
+  border-radius: 18px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.recurso-box h3 {
+  color: #111;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.recurso-fecha {
+  color: #777;
+  margin-bottom: 18px;
+}
+
+.btn-recurso {
+  background: #f28c00;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-weight: 800;
+  display: inline-block;
+}
+
+.btn-recurso:hover {
+  background: #d97700;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 900px) {
+  .quienes-somos-box,
+  .recursos-laterales {
+    grid-template-columns: 1fr;
+  }
+
+  .quienes-somos-title {
+    text-align: center;
+    font-size: 34px;
+  }
+
+  .quienes-somos-title::after {
+    margin: 12px auto 0;
+  }
+}

@@ -1,0 +1,83 @@
+<section id="intranet" class="seccion">
+
+  <div class="contenido">
+
+    <div class="intranet-box">
+
+      <div class="intranet-title">
+        <h2>Iniciar sesión</h2>
+      </div>
+
+      <div class="intranet-info">
+
+        <p>
+          Accede al panel interno del Banco de Alimentos de Cajamarca.
+          Este es un formulario de simulación.
+        </p>
+
+        <form class="login-form">
+
+          <div class="input-group">
+
+            <i class="fas fa-user"></i>
+
+            <input
+              type="text"
+              placeholder="Ingresa tu usuario"
+              [(ngModel)]="login.usuario"
+              name="usuario"
+            >
+
+          </div>
+
+          <div class="input-group">
+
+            <i class="fas fa-lock"></i>
+
+            <input
+              type="password"
+              placeholder="Ingresa tu contraseña"
+              [(ngModel)]="login.contrasena"
+              name="contrasena"
+            >
+
+          </div>
+
+          <div class="login-extra">
+
+            <label>
+              <input
+                type="checkbox"
+                [(ngModel)]="login.recordar"
+                name="recordar"
+              >
+              Recuérdame
+            </label>
+
+            <a href="#" class="login-forgot">
+              ¿Olvidaste tu contraseña?
+            </a>
+
+          </div>
+
+          <button
+            type="button"
+            class="btn-login"
+            (click)="ingresar()"
+          >
+
+            <i class="fas fa-sign-in-alt"></i>
+
+            Ingresar
+
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

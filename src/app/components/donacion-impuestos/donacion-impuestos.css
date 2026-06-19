@@ -1,0 +1,95 @@
+.moderna {
+  background: #f5f7f6;
+  padding: 70px 20px;
+}
+
+.donacion-impuestos-box {
+  max-width: 950px;
+  margin: auto;
+  background: #fff;
+  border-radius: 18px;
+  padding: 45px 60px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.donacion-impuestos-title h2 {
+  color: #087a3d;
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.donacion-impuestos-title::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 4px;
+  background: #f28c00;
+  border-radius: 20px;
+  margin: 0 auto 25px;
+}
+
+.donacion-impuestos-info p {
+  max-width: 750px;
+  margin: 0 auto 25px;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.donacion-impuestos-beneficios h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.donacion-impuestos-beneficios ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 30px;
+  max-width: 620px;
+}
+
+.donacion-impuestos-beneficios li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  color: #444;
+  font-size: 16px;
+  text-align: left;
+}
+
+.donacion-impuestos-beneficios li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #087a3d;
+  font-weight: 900;
+}
+
+.btn-donar {
+  background: linear-gradient(135deg, #ff8a00, #ff5e62);
+  color: #fff;
+  border: none;
+  padding: 13px 35px;
+  border-radius: 8px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-donar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(255, 122, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  .donacion-impuestos-box {
+    padding: 35px 25px;
+  }
+
+  .donacion-impuestos-title h2 {
+    font-size: 28px;
+  }
+}

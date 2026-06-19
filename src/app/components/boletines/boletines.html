@@ -1,0 +1,29 @@
+<section id="boletines" class="seccion">
+
+  <div class="contenido">
+
+    <div class="boletines-grid">
+
+      <article
+        class="boletin-card"
+        *ngFor="let boletin of boletines"
+      >
+
+        <div class="boletin-imagen">
+          <img [src]="boletin.imagen" [alt]="boletin.alt">
+        </div>
+
+        <div
+          class="boletin-texto"
+          [ngClass]="boletin.color"
+        >
+          <p>{{ boletin.texto }}</p>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>

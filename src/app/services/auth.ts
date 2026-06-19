@@ -21,4 +21,30 @@ export class Auth {
     });
 
   }
+
+  // GUARDAR DATOS DEL USUARIO
+  saveSession(data: any): void {
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('rol', data.rol);
+  }
+
+  // OBTENER ROL
+  getRol(): string | null {
+    return localStorage.getItem('rol');
+  }
+
+  // VALIDACIONES DE ROLES
+  isAdmin(): boolean {
+    return this.getRol() === 'ADMIN';
+  }
+
+  isTrabajador(): boolean {
+    return this.getRol() === 'TRABAJADOR';
+  }
+
+  // LOGOUT
+  logout(): void {
+    localStorage.clear();
+  }
 }
+

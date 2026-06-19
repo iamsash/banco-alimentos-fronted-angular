@@ -22,6 +22,10 @@
 
   <app-correo *ngIf="seccionActiva === 'correo'"></app-correo>
 
+  <app-panel-admin *ngIf="seccionActiva === 'panel-admin'"></app-panel-admin>
+
+  <app-panel-trabajador *ngIf="seccionActiva === 'panel-trabajador'"></app-panel-trabajador>
+
 <app-intranet
   *ngIf="seccionActiva === 'intranet'"
   (loginCorrecto)="abrirPanel()">
@@ -35,3 +39,5 @@
 
 
 <app-footer></app-footer>
+
+

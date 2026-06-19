@@ -19,4 +19,13 @@ export class AlimentoService {
   listar(): Observable<Alimento[]> {
     return this.http.get<Alimento[]>(this.apiUrl);
   }
+
+  actualizar(id: number, alimento: Alimento): Observable<Alimento> {
+    return this.http.put<Alimento>(`${this.apiUrl}/${id}`, alimento);
+  }
+
+  eliminar(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
 }

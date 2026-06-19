@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class Auth {
 // ruta del backend para hacer el login
+
   private apiUrl = 'http://localhost:8080/api/auth/login';
 
   constructor(private http: HttpClient) {}

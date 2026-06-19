@@ -1,0 +1,117 @@
+<div class="panel-card">
+
+  <h2>Registrar Donador</h2>
+
+  <form class="formulario-panel" (ngSubmit)="guardarUsuario()">
+
+    <div class="campo">
+
+      <label>Nombre</label>
+
+      <input
+        type="text"
+        [(ngModel)]="usuario.nombre"
+        name="nombre"
+        placeholder="Nombre completo">
+
+    </div>
+
+    <div class="campo">
+
+      <label>Correo electrónico</label>
+
+      <input
+        type="email"
+        [(ngModel)]="usuario.email"
+        name="email"
+        placeholder="correo@ejemplo.com">
+
+    </div>
+
+    <div class="campo">
+
+      <label>Teléfono</label>
+
+      <input
+        type="text"
+        [(ngModel)]="usuario.telefono"
+        name="telefono"
+        placeholder="987654321">
+
+    </div>
+
+    <button type="submit">
+
+      {{ modoEdicion ? 'Actualizar Donador' : 'Guardar Donador' }}
+
+    </button>
+
+  </form>
+
+  <hr>
+
+  <h3>Listado de Donadores</h3>
+
+  <table class="tabla-panel">
+
+    <thead>
+
+      <tr>
+
+        <th>ID</th>
+
+        <th>Nombre</th>
+
+        <th>Correo</th>
+
+        <th>Teléfono</th>
+
+        <th>Fecha Registro</th>
+
+        <th>Acciones</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let usuario of usuarios()">
+
+        <td>{{ usuario.id }}</td>
+
+        <td>{{ usuario.nombre }}</td>
+
+        <td>{{ usuario.email }}</td>
+
+        <td>{{ usuario.telefono }}</td>
+
+        <td>{{ usuario.fechaRegistro }}</td>
+
+        <td>
+
+          <button
+            type="button"
+            (click)="editarUsuario(usuario)">
+
+            ✏️ Editar
+
+          </button>
+
+          <button
+            type="button"
+            (click)="eliminarUsuario(usuario.id!)">
+
+            🗑️ Eliminar
+
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

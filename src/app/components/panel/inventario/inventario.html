@@ -1,0 +1,44 @@
+<div class="panel-card">
+
+    <h2>Inventario General</h2>
+
+    <table class="tabla-panel">
+
+        <thead>
+
+            <tr>
+
+                <th>Alimento</th>
+                <th>Categoría</th>
+                <th>Unidad</th>
+                <th>Total Donado</th>
+                <th>Total Distribuido</th>
+                <th>Stock Actual</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let item of inventario()">
+
+                <td>{{ item.alimentoNombre }}</td>
+
+                <td>{{ item.categoriaNombre }}</td>
+
+                <td>{{ item.unidadMedida }}</td>
+
+                <td>{{ item.totalDonado }}</td>
+
+                <td>{{ item.totalDistribuido }}</td>
+
+                <td>{{ item.stockActual }}</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

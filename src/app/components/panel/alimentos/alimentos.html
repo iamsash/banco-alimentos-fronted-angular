@@ -1,0 +1,135 @@
+<div class="panel-card">
+
+  <h2>Registrar Alimento</h2>
+
+  <form class="formulario-panel" (ngSubmit)="guardarAlimento()">
+
+    <div class="campo">
+      <label>Nombre del alimento</label>
+      <input
+        type="text"
+        [(ngModel)]="alimento.nombre"
+        name="nombre"
+        placeholder="Ejemplo: Arroz">
+    </div>
+
+    <div class="campo">
+      <label>Descripción</label>
+      <input
+        type="text"
+        [(ngModel)]="alimento.descripcion"
+        name="descripcion"
+        placeholder="Descripción">
+    </div>
+
+    <div class="campo">
+      <label>Unidad de medida</label>
+
+      <select
+        [(ngModel)]="alimento.unidadMedida"
+        name="unidadMedida">
+
+        <option value="">Seleccione</option>
+        <option value="kg">Kilogramos</option>
+        <option value="unidad">Unidad</option>
+        <option value="litro">Litro</option>
+
+      </select>
+
+    </div>
+
+    <div class="campo">
+
+      <label>Categoría</label>
+
+      <select
+        [(ngModel)]="alimento.categoria!.id"
+        name="categoria">
+
+        <option [value]="0">
+          Seleccione categoría
+        </option>
+
+        <option
+          *ngFor="let categoria of categorias()"
+          [value]="categoria.id">
+
+          {{ categoria.nombre }}
+
+        </option>
+
+      </select>
+
+    </div>
+
+    <button type="submit">
+
+      {{ modoEdicion ? 'Actualizar alimento' : 'Guardar alimento' }}
+
+    </button>
+
+  </form>
+
+  <hr>
+
+  <h3>Listado de alimentos</h3>
+
+  <table class="tabla-panel">
+
+    <thead>
+
+      <tr>
+
+        <th>ID</th>
+
+        <th>Nombre</th>
+
+        <th>Categoría</th>
+
+        <th>Unidad</th>
+
+        <th>Acciones</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let alimento of alimentos()">
+
+        <td>{{ alimento.id }}</td>
+
+        <td>{{ alimento.nombre }}</td>
+
+        <td>{{ alimento.categoria?.nombre }}</td>
+
+        <td>{{ alimento.unidadMedida }}</td>
+
+        <td>
+
+          <button
+            type="button"
+            (click)="editarAlimento(alimento)">
+
+            ✏️ Editar
+
+          </button>
+
+          <button
+            type="button"
+            (click)="eliminarAlimento(alimento.id!)">
+
+            🗑️ Eliminar
+
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

@@ -1,200 +1,173 @@
-.panel-admin {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  background: #f5f6f8;
-}
 
-.sidebar-panel {
-  background: #ffffff;
-  padding: 32px 24px;
-  border-right: 1px solid #e5e7eb;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+    .panel-admin{
+      min-height:100vh;
+      display:grid;
+      grid-template-columns:260px 1fr;
+      background:#f3f4f6;
+    }
 
-.logo-panel h2 {
-  font-size: 22px;
-  color: #1f2937;
-  margin-bottom: 40px;
-}
+    .sidebar-panel{
+      background:#ffffff;
+      padding:28px 22px;
+      border-right:1px solid #e5e7eb;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow:4px 0 18px rgba(0,0,0,.06);
+    }
 
-.menu-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
+    .logo-panel h2{
+      font-size:32px;
+      font-weight:800;
+      line-height:1.2;
+      color:#1f2937;
+      margin-bottom:35px;
+    }
 
-.menu-panel button {
-  border: 1px solid #f4c27a;
-  background: #ffffff;
-  color: #1f2937;
-  padding: 14px 18px;
-  border-radius: 12px;
-  text-align: left;
-  font-weight: 700;
-  cursor: pointer;
-}
+    .menu-panel{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
 
-.menu-panel button.activo,
-.menu-panel button:hover {
-  background: #f28c00;
-  color: white;
-}
+    .menu-panel button{
+      border:none;
+      background:#fff;
+      color:#374151;
+      padding:15px 18px;
+      border-radius:14px;
+      text-align:left;
+      font-size:15px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.25s ease;
+      box-shadow:0 3px 10px rgba(0,0,0,.05);
+    }
 
-.mensaje-sidebar {
-  color: #6b7280;
-  font-size: 14px;
-}
+    .menu-panel button:hover{
+      background:#fff4e5;
+      color:#f28c00;
+      transform:translateX(5px);
+    }
 
-.contenido-panel {
-  padding: 40px;
-}
+    .menu-panel button.activo{
+      background:linear-gradient(90deg,#f28c00,#ffab2d);
+      color:#fff;
+      box-shadow:0 10px 18px rgba(242,140,0,.30);
+    }
 
-.encabezado-panel {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 28px;
-}
+    .contenido-panel{
+      padding:40px;
+    }
 
-.encabezado-panel h1 {
-  font-size: 34px;
-  color: #111827;
-}
+    .panel-card,
+    .stat-card{
+      background:#fff;
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 8px 22px rgba(0,0,0,.06);
+    }
 
-.encabezado-panel p {
-  color: #6b7280;
-  margin-top: 5px;
-}
+    .panel-card{
+      max-width:100%;
+    }
 
-.admin-info {
-  background: white;
-  padding: 14px 20px;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-  font-weight: 700;
-}
+    .panel-card h2{
+      text-align:center;
+      font-size:36px;
+      color:#1f2937;
+      margin-bottom:28px;
+    }
 
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
+    .formulario-panel{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:22px;
+    }
 
-.stat-card,
-.panel-card {
-  background: white;
-  border-radius: 18px;
-  padding: 28px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.07);
-}
+    .campo{
+      display:flex;
+      flex-direction:column;
+    }
 
-.stat-card h3 {
-  font-size: 24px;
-  color: #111827;
-  margin-bottom: 8px;
-}
+    .campo label{
+      margin-bottom:8px;
+      font-weight:700;
+      color:#374151;
+    }
 
-.stat-card p {
-  color: #6b7280;
-}
+    .campo input,
+    .campo select{
+      padding:13px 15px;
+      border:1px solid #d1d5db;
+      border-radius:10px;
+      font-size:15px;
+      transition:.2s;
+    }
 
-.panel-card {
-  max-width: 820px;
-}
+    .campo input:focus,
+    .campo select:focus{
+      outline:none;
+      border-color:#f28c00;
+      box-shadow:0 0 0 4px rgba(242,140,0,.15);
+    }
 
-.panel-card h2 {
-  font-size: 30px;
-  margin-bottom: 24px;
-  color: #111827;
-}
+    .formulario-panel button{
+      grid-column:span 2;
+      border:none;
+      background:#f28c00;
+      color:#fff;
+      padding:15px;
+      border-radius:12px;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s;
+    }
 
-.formulario-panel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
+    .formulario-panel button:hover{
+      background:#d97706;
+    }
 
-.campo {
-  display: flex;
-  flex-direction: column;
-}
+    .tabla-panel{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:24px;
+      overflow:hidden;
+      border-radius:12px;
+    }
 
-.campo label {
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #374151;
-}
+    .tabla-panel th{
+      background:#f28c00;
+      color:#fff;
+      padding:14px;
+      text-align:center;
+    }
 
-.campo input,
-.campo select {
-  padding: 13px 15px;
-  border: 1px solid #d1d5db;
-  border-radius: 11px;
-  font-size: 15px;
-}
+    .tabla-panel td{
+      padding:13px;
+      border-bottom:1px solid #ececec;
+      text-align:center;
+    }
 
-.campo input:focus,
-.campo select:focus {
-  outline: none;
-  border-color: #f28c00;
-}
+    .tabla-panel tbody tr:nth-child(even){
+      background:#fafafa;
+    }
 
-.formulario-panel button {
-  grid-column: span 2;
-  background: #f28c00;
-  color: white;
-  border: none;
-  padding: 15px;
-  border-radius: 14px;
-  font-weight: 800;
-  cursor: pointer;
-}
+    .tabla-panel tbody tr:hover{
+      background:#fff7ed;
+    }
 
-.formulario-panel button:hover {
-  background: #d97900;
-}
+    .dashboard-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
 
-@media (max-width: 900px) {
-  .panel-admin {
-    grid-template-columns: 1fr;
-  }
+    @media(max-width:900px){
+      .panel-admin{grid-template-columns:1fr;}
+      .formulario-panel{grid-template-columns:1fr;}
+      .formulario-panel button{grid-column:span 1;}
+      .dashboard-grid{grid-template-columns:1fr;}
+    }
 
-  .sidebar-panel {
-    border-right: none;
-    border-bottom: 1px solid #e5e7eb;
-  }
-
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .formulario-panel {
-    grid-template-columns: 1fr;
-  }
-
-  .formulario-panel button {
-    grid-column: span 1;
-  }
-}
-
-
-.tabla-panel {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.tabla-panel th,
-.tabla-panel td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: left;
-}
-
-.tabla-panel th {
-  background: #f59e0b;
-  color: white;
-}

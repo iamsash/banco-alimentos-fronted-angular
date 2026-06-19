@@ -19,4 +19,13 @@ export class BeneficiarioService {
   guardar(beneficiario: Beneficiario): Observable<Beneficiario> {
     return this.http.post<Beneficiario>(this.apiUrl, beneficiario);
   }
+
+  actualizar(id: number, beneficiario: Beneficiario): Observable<Beneficiario> {
+    return this.http.put<Beneficiario>(`${this.apiUrl}/${id}`, beneficiario);
+  }
+
+  eliminar(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
 }

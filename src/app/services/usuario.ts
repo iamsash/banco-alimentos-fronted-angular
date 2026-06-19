@@ -12,11 +12,20 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) {}
 
+  listar(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.apiUrl);
+  }
+
   guardar(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(this.apiUrl, usuario);
   }
 
-  listar(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(this.apiUrl);
+  actualizar(id: number, usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(`${this.apiUrl}/${id}`, usuario);
   }
+
+  eliminar(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
 }

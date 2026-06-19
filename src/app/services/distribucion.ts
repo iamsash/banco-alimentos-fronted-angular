@@ -1,3 +1,4 @@
+import { DistribucionDTO } from '../models/distribucion-dto';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -12,9 +13,9 @@ export class DistribucionService {
 
   constructor(private http: HttpClient) {}
 
-  listar(): Observable<Distribucion[]> {
-    return this.http.get<Distribucion[]>(this.apiUrl);
-  }
+ listar(): Observable<DistribucionDTO[]> {
+  return this.http.get<DistribucionDTO[]>(this.apiUrl);
+}
 
   guardar(distribucion: Distribucion): Observable<Distribucion> {
     return this.http.post<Distribucion>(this.apiUrl, distribucion);

@@ -1,0 +1,114 @@
+<div class="panel-card">
+
+  <h2>Registrar Beneficiario</h2>
+
+  <form class="formulario-panel" (ngSubmit)="guardarBeneficiario()">
+
+    <div class="campo">
+      <label>Nombre</label>
+      <input
+        type="text"
+        [(ngModel)]="beneficiario.nombre"
+        name="nombreBeneficiario"
+        placeholder="Nombre del beneficiario">
+    </div>
+
+    <div class="campo">
+      <label>Tipo</label>
+      <select
+        [(ngModel)]="beneficiario.tipo"
+        name="tipoBeneficiario">
+
+        <option value="">Seleccione</option>
+        <option value="Persona">Persona</option>
+        <option value="Familia">Familia</option>
+        <option value="Comedor Popular">Comedor Popular</option>
+        <option value="Institución">Institución</option>
+
+      </select>
+    </div>
+
+    <div class="campo">
+      <label>Dirección</label>
+      <input
+        type="text"
+        [(ngModel)]="beneficiario.direccion"
+        name="direccionBeneficiario"
+        placeholder="Dirección">
+    </div>
+
+    <div class="campo">
+      <label>Teléfono</label>
+      <input
+        type="text"
+        [(ngModel)]="beneficiario.telefono"
+        name="telefonoBeneficiario"
+        placeholder="987654321">
+    </div>
+
+    <button type="submit">
+
+      {{ modoEdicion ? 'Actualizar Beneficiario' : 'Guardar Beneficiario' }}
+
+    </button>
+
+  </form>
+
+  <hr>
+
+  <h3>Listado de Beneficiarios</h3>
+
+  <table class="tabla-panel">
+
+    <thead>
+
+      <tr>
+
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Acciones</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let beneficiario of beneficiarios()">
+
+        <td>{{ beneficiario.id }}</td>
+        <td>{{ beneficiario.nombre }}</td>
+        <td>{{ beneficiario.tipo }}</td>
+        <td>{{ beneficiario.direccion }}</td>
+        <td>{{ beneficiario.telefono }}</td>
+
+        <td>
+
+          <button
+            type="button"
+            (click)="editarBeneficiario(beneficiario)">
+
+            ✏️ Editar
+
+          </button>
+
+          <button
+            type="button"
+            (click)="eliminarBeneficiario(beneficiario.id!)">
+
+            🗑️ Eliminar
+
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

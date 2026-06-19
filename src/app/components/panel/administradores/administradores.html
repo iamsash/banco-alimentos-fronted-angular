@@ -1,0 +1,118 @@
+<div class="panel-card">
+
+  <h2>Administradores</h2>
+
+  <form class="formulario-panel" (ngSubmit)="guardarAdministrador()">
+
+    <div class="campo">
+      <label>Nombre</label>
+      <input
+        type="text"
+        [(ngModel)]="admin.nombre"
+        name="nombre"
+        required>
+    </div>
+
+    <div class="campo">
+      <label>Correo</label>
+      <input
+        type="email"
+        [(ngModel)]="admin.email"
+        name="email"
+        required>
+    </div>
+
+    <div class="campo">
+      <label>Contraseña</label>
+      <input
+        type="password"
+        [(ngModel)]="admin.password"
+        name="password"
+        required>
+    </div>
+
+    <div class="campo">
+      <label>Rol</label>
+
+      <select
+        [(ngModel)]="admin.rol.id"
+        name="rol">
+
+        <option [value]="0">Seleccione un rol</option>
+
+        <option
+          *ngFor="let rol of roles()"
+          [value]="rol.id">
+
+          {{ rol.nombre }}
+
+        </option>
+
+      </select>
+
+    </div>
+
+    <button type="submit">
+
+      {{ modoEdicion ? 'Actualizar' : 'Registrar' }}
+
+    </button>
+
+  </form>
+
+  <hr>
+
+  <h3>Listado de Administradores</h3>
+
+  <table class="tabla-panel">
+
+    <thead>
+
+      <tr>
+
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let admin of administradores()">
+
+       <td>{{ admin.id }}</td>
+<td>{{ admin.nombre || '-' }}</td>
+<td>{{ admin.email }}</td>
+<td>{{ admin.rol?.nombre || '-' }}</td>
+
+        <td>
+
+          <button
+            class="btn-editar"
+            (click)="editarAdministrador(admin)">
+
+            Editar
+
+          </button>
+
+          <button
+            class="btn-eliminar"
+            (click)="eliminarAdministrador(admin.id!)">
+
+            Eliminar
+
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

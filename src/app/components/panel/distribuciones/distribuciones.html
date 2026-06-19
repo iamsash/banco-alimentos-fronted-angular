@@ -1,0 +1,107 @@
+<div class="panel-card">
+
+  <h2>Registrar Distribución</h2>
+
+  <form class="formulario-panel" (ngSubmit)="guardarDistribucion()">
+
+    <div class="campo">
+
+      <label>Beneficiario</label>
+
+      <select
+        [(ngModel)]="distribucion.beneficiario.id"
+        name="beneficiario">
+
+        <option [value]="0">Seleccione un beneficiario</option>
+
+        <option
+          *ngFor="let beneficiario of beneficiarios()"
+          [value]="beneficiario.id">
+
+          {{ beneficiario.nombre }}
+
+        </option>
+
+      </select>
+
+    </div>
+
+    <div class="campo">
+
+      <label>Alimento</label>
+
+      <select
+        [(ngModel)]="distribucion.alimento.id"
+        name="alimento">
+
+        <option [value]="0">Seleccione un alimento</option>
+
+        <option
+          *ngFor="let alimento of alimentos()"
+          [value]="alimento.id">
+
+          {{ alimento.nombre }}
+
+        </option>
+
+      </select>
+
+    </div>
+
+    <div class="campo">
+
+      <label>Cantidad</label>
+
+      <input
+        type="number"
+        [(ngModel)]="distribucion.cantidad"
+        name="cantidad">
+
+    </div>
+
+    <button type="submit">
+
+      Registrar Distribución
+
+    </button>
+
+  </form>
+
+  <hr>
+
+  <h3>Listado de Distribuciones</h3>
+
+  <table class="tabla-panel">
+
+    <thead>
+
+      <tr>
+
+        <th>ID</th>
+        <th>Beneficiario</th>
+        <th>Alimento</th>
+        <th>Cantidad</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let distribucion of distribuciones()">
+
+        <td>{{ distribucion.id }}</td>
+
+        <td>{{ distribucion.beneficiarioNombre }}</td>
+
+        <td>{{ distribucion.alimentoNombre }}</td>
+
+        <td>{{ distribucion.cantidad }}</td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

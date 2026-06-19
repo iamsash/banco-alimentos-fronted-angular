@@ -1,0 +1,101 @@
+<div class="panel-card">
+
+  <h2>Registrar Categoría</h2>
+
+  <form class="formulario-panel" (ngSubmit)="guardarCategoria()">
+
+    <div class="campo">
+
+      <label>Nombre</label>
+
+      <input
+        type="text"
+        [(ngModel)]="categoria.nombre"
+        name="nombreCategoria"
+        placeholder="Ejemplo: Cereales">
+
+    </div>
+
+    <div class="campo">
+
+      <label>Descripción</label>
+
+      <input
+        type="text"
+        [(ngModel)]="categoria.descripcion"
+        name="descripcionCategoria"
+        placeholder="Descripción de la categoría">
+
+    </div>
+
+    <button type="submit">
+
+      {{ modoEdicion ? 'Actualizar Categoría' : 'Guardar Categoría' }}
+
+    </button>
+
+  </form>
+
+  <hr>
+
+  <h3>Listado de Categorías</h3>
+
+  <table class="tabla-panel">
+
+    <thead>
+
+      <tr>
+
+        <th>ID</th>
+
+        <th>Nombre</th>
+
+        <th>Descripción</th>
+
+        <th>Fecha</th>
+
+        <th>Acciones</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let categoria of categorias()">
+
+        <td>{{ categoria.id }}</td>
+
+        <td>{{ categoria.nombre }}</td>
+
+        <td>{{ categoria.descripcion }}</td>
+
+        <td>{{ categoria.fechaRegistro }}</td>
+
+        <td>
+
+          <button
+            type="button"
+            (click)="editarCategoria(categoria)">
+
+            ✏️ Editar
+
+          </button>
+
+          <button
+            type="button"
+            (click)="eliminarCategoria(categoria.id!)">
+
+            🗑️ Eliminar
+
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { DashboardComponent } from '../panel/dashboard/dashboard';
 import { AlimentosComponent } from '../panel/alimentos/alimentos';
 import { CategoriasComponent } from '../panel/categorias/categorias';
@@ -9,6 +10,7 @@ import { DonacionesComponent } from '../panel/donaciones/donaciones';
 import { DistribucionesComponent } from '../panel/distribuciones/distribuciones';
 import { InventarioComponent } from '../panel/inventario/inventario';
 import { AdministradoresComponent } from '../panel/administradores/administradores';
+
 @Component({
   selector: 'app-panel-admin',
   standalone: true,
@@ -29,10 +31,25 @@ import { AdministradoresComponent } from '../panel/administradores/administrador
 })
 export class PanelAdminComponent {
 
-  seccionPanel: string = 'dashboard';
+  rol = localStorage.getItem('rol');
+  nombre = localStorage.getItem('nombre');
+
+  seccionPanel = 'dashboard';
 
   cambiarSeccion(seccion: string): void {
     this.seccionPanel = seccion;
+  }
+
+  cerrarSesion(): void {
+
+    if (!confirm('¿Deseas cerrar sesión?')) {
+      return;
+    }
+
+    localStorage.clear();
+
+    location.reload();
+
   }
 
 }

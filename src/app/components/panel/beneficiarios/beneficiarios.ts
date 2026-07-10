@@ -15,6 +15,7 @@ import { BeneficiarioService } from '../../../services/beneficiario';
 export class BeneficiariosComponent implements OnInit {
 
   modoEdicion = false;
+  textoBusqueda = '';
 
   beneficiario: Beneficiario = {
     nombre: '',
@@ -157,6 +158,24 @@ export class BeneficiariosComponent implements OnInit {
       fechaRegistro:new Date().toISOString().split('T')[0]
 
     };
+
+  }
+
+  get beneficiariosFiltrados() {
+
+    const texto = this.textoBusqueda.toLowerCase();
+
+    return this.beneficiarios().filter(beneficiario =>
+
+      beneficiario.nombre.toLowerCase().includes(texto) ||
+
+      beneficiario.tipo.toLowerCase().includes(texto) ||
+
+      beneficiario.direccion.toLowerCase().includes(texto) ||
+
+      beneficiario.telefono.toLowerCase().includes(texto)
+
+    );
 
   }
 

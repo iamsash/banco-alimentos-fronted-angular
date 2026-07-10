@@ -8,7 +8,7 @@ import { Rol } from '../models/rol';
 })
 export class RolService {
 
-  private apiUrl = 'http://localhost:8080/roles';
+  private apiUrl = '/roles';
 
   constructor(private http: HttpClient) {}
 

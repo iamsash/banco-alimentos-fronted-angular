@@ -18,6 +18,8 @@ import { CategoriaService } from '../../../services/categoria';
 export class AlimentosComponent implements OnInit {
 
   modoEdicion = false;
+  textoBusqueda = '';
+
 
   alimento: Alimento = {
     nombre: '',
@@ -207,5 +209,31 @@ export class AlimentosComponent implements OnInit {
     };
 
   }
+
+  get alimentosFiltrados(): Alimento[] {
+
+  if (!this.textoBusqueda.trim()) {
+    return this.alimentos();
+  }
+
+  return this.alimentos().filter(alimento =>
+
+    alimento.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+
+    alimento.descripcion.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+
+    alimento.unidadMedida.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+
+    alimento.categoria?.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase())
+
+  );
+
+
+
+}
+
+
+
+
 
 }

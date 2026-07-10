@@ -1,33 +1,141 @@
-<div class="dashboard-grid">
 
-  <div class="stat-card">
-    <h3>Alimentos</h3>
-    <p>Registro de alimentos disponibles.</p>
+
+<div class="dashboard">
+
+  <!-- ENCABEZADO -->
+  <div class="header-dashboard">
+
+    <div class="titulo-dashboard">
+      <h1>👋 ¡Bienvenido, Administrador!</h1>
+      <p>
+        Aquí puedes visualizar el resumen general del Banco de Alimentos.
+      </p>
+    </div>
+
+    
+
   </div>
 
-  <div class="stat-card">
-    <h3>Donadores</h3>
-    <p>Personas o entidades registradas.</p>
-  </div>
 
-  <div class="stat-card">
-    <h3>Donaciones</h3>
-    <p>Ingresos registrados al sistema.</p>
-  </div>
+  <!-- TARJETAS -->
+  <div class="cards">
 
-  <div class="stat-card">
-    <h3>Inventario</h3>
-    <p>Control de stock disponible.</p>
-  </div>
+    <div class="card">
+      <div class="icono naranja">📦</div>
 
-  <div class="stat-card">
-    <h3>Categorías</h3>
-    <p>Clasificación de alimentos.</p>
-  </div>
+      <div class="info">
+        <span>Alimentos registrados</span>
+      <h2>{{ this.totalAlimentos }}</h2>
+      </div>
+    </div>
 
-  <div class="stat-card">
-    <h3>Beneficiarios</h3>
-    <p>Personas o entidades que reciben apoyo.</p>
+    <div class="card">
+      <div class="icono rojo">❤️</div>
+
+      <div class="info">
+        <span>Donaciones</span>
+        <h2>{{ totalDonaciones }}</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icono azul">👥</div>
+
+      <div class="info">
+        <span>Beneficiarios</span>
+        <h2>{{ totalBeneficiarios }}</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icono verde">🚚</div>
+
+      <div class="info">
+        <span>Distribuciones</span>
+        <h2>{{ totalDistribuciones }}</h2>
+      </div>
+    </div>
+
+
+
+    <div class="card">
+      <div class="icono morado">📂</div>
+
+      <div class="info">
+        <span>Categorías</span>
+        <h2>{{ totalCategorias }}</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icono rojo">👤</div>
+
+      <div class="info">
+        <span>Administradores</span>
+        <h2>{{ totalAdministradores }}</h2>
+      </div>
+    </div>
+
+  </div>
+  
+
+
+  <!-- CONTENIDO -->
+  <div class="contenido">
+
+    <!-- GRAFICO -->
+    <div class="grafico">
+
+      <div class="card-header">
+        <h3>📈 Donaciones por mes</h3>
+      </div>
+
+      <div class="fake-chart">
+
+    <app-grafico></app-grafico>
+
+</div>
+
+
+    <!-- ACTIVIDAD -->
+    <div class="actividad">
+
+      <div class="card-header">
+        <h3>🕒 Actividad reciente</h3>
+      </div>
+
+      <ul>
+
+        <li>
+          <span>✔</span>
+          Donación registrada
+        </li>
+
+        <li>
+          <span>✔</span>
+          Beneficiario agregado
+        </li>
+
+        <li>
+          <span>✔</span>
+          Inventario actualizado
+        </li>
+
+        <li>
+          <span>✔</span>
+          Administrador registrado
+        </li>
+
+      </ul>
+
+    </div>
+
   </div>
 
 </div>
+
+<div class="acciones-dashboard">
+      <button class="btn-reporte">
+        📄 Generar Reporte
+      </button>
+    </div>

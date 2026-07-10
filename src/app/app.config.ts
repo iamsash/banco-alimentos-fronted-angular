@@ -1,25 +1,18 @@
-
-
-
-
-
-
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
-
-import { provideHttpClient } from '@angular/common/http'; 
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { authInterceptor } from './interceptors/auth-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    //activa el internet para hacer la conexion con el backend y enviar los datos del login
-    provideHttpClient(),
-    provideClientHydration(withEventReplay())
-   
+
+    provideHttpClient(
+      withInterceptors([authInterceptor])
+    )
   ]
 };

@@ -28,10 +28,20 @@ export class IntranetComponent {
       this.login.contrasena
     ).subscribe({
 
-      next: (respuesta) => {
+     next: (respuesta) => {
+
   console.log('Login correcto', respuesta);
 
+  // Guardar el JWT
+  localStorage.setItem('token', respuesta.token);
+
+  // Guardar que el usuario inició sesión
   localStorage.setItem('logueado', 'true');
+
+  // Opcional: guardar datos del usuario
+  localStorage.setItem('nombre', respuesta.nombre);
+  localStorage.setItem('email', respuesta.email);
+  localStorage.setItem('rol', respuesta.rol);
 
   alert('Bienvenido al panel');
 

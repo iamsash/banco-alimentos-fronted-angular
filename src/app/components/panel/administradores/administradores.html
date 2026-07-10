@@ -60,9 +60,9 @@
 
   </form>
 
-  <hr>
 
-  <h3>Listado de Administradores</h3>
+
+  <h3 class="titulo-listado">Listado de Administradores</h3>
 
   <table class="tabla-panel">
 
@@ -70,7 +70,7 @@
 
       <tr>
 
-        <th>ID</th>
+
         <th>Nombre</th>
         <th>Correo</th>
         <th>Rol</th>
@@ -84,7 +84,7 @@
 
       <tr *ngFor="let admin of administradores()">
 
-       <td>{{ admin.id }}</td>
+     
 <td>{{ admin.nombre || '-' }}</td>
 <td>{{ admin.email }}</td>
 <td>{{ admin.rol?.nombre || '-' }}</td>

@@ -8,7 +8,7 @@ import { Beneficiario } from '../models/beneficiario';
 })
 export class BeneficiarioService {
 
-  private apiUrl = 'http://localhost:8080/beneficiarios';
+  private apiUrl = '/beneficiarios';
 
   constructor(private http: HttpClient) {}
 

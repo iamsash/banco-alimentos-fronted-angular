@@ -50,6 +50,16 @@
 
   <hr>
 
+  <div class="campo" style="margin:20px 0;">
+
+    <input
+        type="text"
+        placeholder="🔍 Buscar donador..."
+        [(ngModel)]="textoBusqueda"
+        name="buscar">
+
+  </div>
+
   <h3>Listado de Donadores</h3>
 
   <table class="tabla-panel">
@@ -58,7 +68,7 @@
 
       <tr>
 
-        <th>ID</th>
+   
 
         <th>Nombre</th>
 
@@ -76,9 +86,9 @@
 
     <tbody>
 
-      <tr *ngFor="let usuario of usuarios()">
+      <tr *ngFor="let usuario of usuariosFiltrados">
 
-        <td>{{ usuario.id }}</td>
+       
 
         <td>{{ usuario.nombre }}</td>
 

@@ -1,122 +1,214 @@
-.header-top {
-  background: #111;
-  padding: 12px 0;
+/*=========================
+        HEADER SUPERIOR
+==========================*/
+
+.header-top{
+    background:#111;
+    padding:12px 0;
 }
 
-.contenedor-top {
-  width: 90%;
-  margin: auto;
+.contenedor-top{
+    width:90%;
+    margin:0 auto;
 }
 
-.header-top ul,
-.menu-blanco ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 35px;
-  margin: 0;
-  padding: 0;
+.header-top ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:35px;
+    margin:0;
+    padding:0;
 }
 
-.header-top a {
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-  padding: 10px 15px;
-  border-radius: 6px;
+.header-top a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    padding:10px 15px;
+    border-radius:6px;
+    transition:.3s;
 }
 
-.header-top a:hover {
-  background: #333;
-  color: yellow;
+.header-top a:hover{
+    background:#333;
+    color:#ffd54f;
 }
 
-.sub-header {
-  background: #f28c00;
-  padding: 18px 0;
+/*=========================
+        HEADER NARANJA
+==========================*/
+
+.sub-header{
+
+    background:#f28c00;
+
+    height:95px;
+
+    display:flex;
+    align-items:center;
 }
 
-.contenedor-sub {
-  width: 94%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.contenedor-sub{
+
+    width:94%;
+
+    margin:0 auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    height:100%;
 }
 
-.logo img {
-  width: 220px;
-  height: auto;
-  background: white;
+.logo{
+
+    display:flex;
+
+    align-items:center;
 }
 
-.menu-blanco ul {
-  gap: 45px;
+.logo img{
+
+    width:200px;
+
+    height:auto;
+
+    display:block;
+
+    object-fit:contain;
 }
 
-.menu-blanco a {
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  text-align: center;
-  display: block;
+/*=========================
+          MENÚ
+==========================*/
+
+.menu-blanco ul{
+
+    list-style:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:45px;
+
+    margin:0;
+
+    padding:0;
 }
 
-.menu-blanco a:hover {
-  color: #111;
+.menu-blanco a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
 }
 
-.menu-dropdown {
-  position: relative;
+.menu-blanco a:hover{
+
+    color:#222;
 }
 
-.btn-menu {
-  background: rgba(255,255,255,0.2);
-  padding: 10px 14px;
-  border-radius: 8px;
+/*=========================
+      BUSCADOR
+==========================*/
+
+.menu-dropdown{
+
+    position:relative;
 }
 
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 45px;
-  right: 0;
-  background: white;
-  width: 260px;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-  z-index: 100;
+.btn-menu{
+
+    background:rgba(255,255,255,.18);
+
+    padding:11px 14px;
+
+    border-radius:8px;
+
+    transition:.3s;
 }
 
-.menu-dropdown:hover .dropdown-menu {
-  display: block;
+.btn-menu:hover{
+
+    background:rgba(255,255,255,.3);
 }
 
-.search-input {
-  width: 100%;
-  padding: 9px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 10px;
+.dropdown-menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:48px;
+
+    right:0;
+
+    width:260px;
+
+    background:#fff;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+    z-index:999;
 }
 
-.menu-results ul {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
+.menu-dropdown:hover .dropdown-menu{
+
+    display:block;
 }
 
-.menu-results a {
-  color: #333;
-  padding: 8px;
+.search-input{
+
+    width:100%;
+
+    padding:10px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    margin-bottom:12px;
 }
 
-.menu-results a:hover {
-  background: #f28c00;
-  color: white;
-  border-radius: 5px;
+.menu-results ul{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:5px;
+}
+
+.menu-results a{
+
+    width:100%;
+
+    color:#333;
+
+    padding:8px 10px;
+
+    border-radius:6px;
+}
+
+.menu-results a:hover{
+
+    background:#f28c00;
+
+    color:#fff;
 }

@@ -9,7 +9,7 @@ import { Distribucion } from '../models/distribucion';
 })
 export class DistribucionService {
 
-  private apiUrl = 'http://localhost:8080/distribuciones';
+  private apiUrl = '/distribuciones';
 
   constructor(private http: HttpClient) {}
 

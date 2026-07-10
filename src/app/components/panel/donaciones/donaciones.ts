@@ -35,6 +35,12 @@ export class DonacionesComponent implements OnInit {
   alimentos = signal<Alimento[]>([]);
   donaciones = signal<DonacionDTO[]>([]);
 
+  textoBusqueda = '';
+
+fechaDesde = '';
+
+fechaHasta = '';
+
   constructor(
     private donacionService: DonacionService,
     private usuarioService: UsuarioService,
@@ -111,4 +117,44 @@ export class DonacionesComponent implements OnInit {
 
   }
 
+  
+get donacionesFiltradas(): DonacionDTO[] {
+
+  return this.donaciones().filter(donacion => {
+
+    const texto = this.textoBusqueda.toLowerCase();
+
+    const coincideTexto =
+
+      donacion.usuarioNombre.toLowerCase().includes(texto) ||
+
+      donacion.alimentoNombre.toLowerCase().includes(texto);
+
+    if (!this.fechaDesde && !this.fechaHasta) {
+
+      return coincideTexto;
+
+    }
+
+    const fecha = new Date(donacion.fecha);
+
+    const desde = this.fechaDesde
+      ? new Date(this.fechaDesde)
+      : null;
+
+    const hasta = this.fechaHasta
+      ? new Date(this.fechaHasta)
+      : null;
+
+    const coincideFecha =
+
+      (!desde || fecha >= desde) &&
+
+      (!hasta || fecha <= hasta);
+
+    return coincideTexto && coincideFecha;
+
+  });
+
+}
 }

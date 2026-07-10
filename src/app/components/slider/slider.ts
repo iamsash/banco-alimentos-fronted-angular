@@ -12,12 +12,12 @@ export class SliderComponent {
   indiceActual = 0;
 
   imagenes: string[] = [
-    'assets/images/reporte1.png',
-    'assets/images/reporte2.png',
-    'assets/images/reporte3.png',
-    'assets/images/reporte4.png',
-    'assets/images/reporte5.png',
-    'assets/images/reporte6.png'
+    'assets/images/slider/gratamente.png',
+    'assets/images/slider/historico_rescate_anual.png',
+    'assets/images/slider/historico.png',
+    'assets/images/slider/portada.png',
+    'assets/images/slider/rescate_de_alimentos.png',
+    'assets/images/slider/rescate_mensual_23.png'
   ];
 
   siguienteImagen() {

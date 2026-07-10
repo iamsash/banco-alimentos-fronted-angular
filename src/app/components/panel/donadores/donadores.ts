@@ -15,6 +15,7 @@ import { UsuarioService } from '../../../services/usuario';
 export class DonadoresComponent implements OnInit {
 
   modoEdicion = false;
+textoBusqueda = '';
 
   usuario: Usuario = {
     nombre: '',
@@ -168,6 +169,24 @@ export class DonadoresComponent implements OnInit {
       fechaRegistro: new Date().toISOString().split('T')[0]
 
     };
+
+  }
+
+//busqueda de donadores
+
+  get usuariosFiltrados(): Usuario[] {
+
+    const texto = this.textoBusqueda.toLowerCase();
+
+    return this.usuarios().filter(usuario =>
+
+      usuario.nombre.toLowerCase().includes(texto) ||
+
+      usuario.email.toLowerCase().includes(texto) ||
+
+      usuario.telefono.toLowerCase().includes(texto)
+
+    );
 
   }
 

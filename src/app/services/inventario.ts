@@ -8,7 +8,7 @@ import { Inventario } from '../models/inventario';
 })
 export class InventarioService {
 
-  private apiUrl = 'http://localhost:8080/inventario';
+  private apiUrl = '/inventario';
 
   constructor(private http: HttpClient) {}
 

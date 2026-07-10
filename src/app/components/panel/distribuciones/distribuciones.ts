@@ -30,6 +30,10 @@ export class DistribucionesComponent implements OnInit {
   alimentos = signal<Alimento[]>([]);
   distribuciones = signal<DistribucionDTO[]>([]);
 
+  textoBusqueda = '';
+  fechaDesde = '';
+  fechaHasta = '';
+
   constructor(
     private distribucionService: DistribucionService,
     private beneficiarioService: BeneficiarioService,
@@ -101,6 +105,24 @@ export class DistribucionesComponent implements OnInit {
 
     });
 
+  }
+
+  get distribucionesFiltradas(): DistribucionDTO[] {
+    return this.distribuciones().filter(distribucion => {
+      const nombreBeneficiario = distribucion.beneficiarioNombre.toLowerCase();
+      const nombreAlimento = distribucion.alimentoNombre.toLowerCase();
+      const textoBusqueda = this.textoBusqueda.toLowerCase();
+
+      const fechaDistribucion = new Date(distribucion.fecha);
+      const fechaDesde = this.fechaDesde ? new Date(this.fechaDesde) : null;
+      const fechaHasta = this.fechaHasta ? new Date(this.fechaHasta) : null;
+
+      const cumpleBusqueda = nombreBeneficiario.includes(textoBusqueda) || nombreAlimento.includes(textoBusqueda);
+      const cumpleFechaDesde = !fechaDesde || fechaDistribucion >= fechaDesde;
+      const cumpleFechaHasta = !fechaHasta || fechaDistribucion <= fechaHasta;
+
+      return cumpleBusqueda && cumpleFechaDesde && cumpleFechaHasta;
+    });
   }
 
 }

@@ -15,6 +15,7 @@ import { CategoriaService } from '../../../services/categoria';
 export class CategoriasComponent implements OnInit {
 
   modoEdicion = false;
+  textoBusqueda = '';
 
   categoria: Categoria = {
     nombre: '',
@@ -165,6 +166,21 @@ export class CategoriasComponent implements OnInit {
       fechaRegistro: new Date().toISOString().split('T')[0]
 
     };
+
+  }
+
+  get categoriasFiltradas(): Categoria[] {
+
+    if (!this.textoBusqueda) {
+      return this.categorias();
+    }
+
+    const texto = this.textoBusqueda.toLowerCase();
+
+    return this.categorias().filter(categoria =>
+      categoria.nombre.toLowerCase().includes(texto) ||
+      categoria.descripcion.toLowerCase().includes(texto)
+    );
 
   }
 

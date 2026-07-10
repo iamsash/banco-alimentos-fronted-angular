@@ -40,13 +40,23 @@
 
   <h3>Listado de Categorías</h3>
 
+  <div class="campo" style="margin:20px 0;">
+
+    <input
+        type="text"
+        placeholder="🔍 Buscar categoría..."
+        [(ngModel)]="textoBusqueda"
+        name="buscar">
+
+  </div>
+
   <table class="tabla-panel">
 
     <thead>
 
       <tr>
 
-        <th>ID</th>
+      
 
         <th>Nombre</th>
 
@@ -62,9 +72,9 @@
 
     <tbody>
 
-      <tr *ngFor="let categoria of categorias()">
+      <tr *ngFor="let categoria of categoriasFiltradas">
 
-        <td>{{ categoria.id }}</td>
+       
 
         <td>{{ categoria.nombre }}</td>
 

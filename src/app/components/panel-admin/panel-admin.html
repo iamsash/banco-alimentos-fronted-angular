@@ -6,61 +6,76 @@
       <h2>Banco de<br>Alimentos</h2>
     </div>
 
+    
+
     <nav class="menu-panel">
 
       <button
         [class.activo]="seccionPanel==='dashboard'"
         (click)="cambiarSeccion('dashboard')">
-        Dashboard
+        🏠 Inicio
       </button>
 
       <button
+        *ngIf="rol==='ADMINISTRADOR'"
         [class.activo]="seccionPanel==='alimentos'"
         (click)="cambiarSeccion('alimentos')">
-        Alimentos
+        🥫 Alimentos
       </button>
 
       <button
+        *ngIf="rol==='ADMINISTRADOR'"
         [class.activo]="seccionPanel==='categorias'"
         (click)="cambiarSeccion('categorias')">
-        Categorías
+        📂 Categorías
       </button>
 
       <button
+        *ngIf="rol==='ADMINISTRADOR'"
         [class.activo]="seccionPanel==='donadores'"
         (click)="cambiarSeccion('donadores')">
-        Donadores
+        👤 Donadores
       </button>
 
       <button
+        *ngIf="rol==='ADMINISTRADOR'"
         [class.activo]="seccionPanel==='beneficiarios'"
         (click)="cambiarSeccion('beneficiarios')">
-        Beneficiarios
+        🤝 Beneficiarios
       </button>
 
       <button
         [class.activo]="seccionPanel==='donaciones'"
         (click)="cambiarSeccion('donaciones')">
-        Donaciones
+        ❤️ Donaciones
       </button>
 
       <button
         [class.activo]="seccionPanel==='distribuciones'"
         (click)="cambiarSeccion('distribuciones')">
-        Distribuciones
+        🚚 Distribuciones
       </button>
 
       <button
         [class.activo]="seccionPanel==='inventario'"
         (click)="cambiarSeccion('inventario')">
-        Inventario
+        📦 Inventario
       </button>
-<button
-  [class.activo]="seccionPanel==='administradores'"
-  (click)="cambiarSeccion('administradores')">
-  Administradores
-</button>
 
+      <button
+        *ngIf="rol==='ADMINISTRADOR'"
+        [class.activo]="seccionPanel==='administradores'"
+        (click)="cambiarSeccion('administradores')">
+        👨‍💼 Administradores
+      </button>
+
+      <button
+        class="cerrar-sesion"
+        (click)="cerrarSesion()">
+
+        🚪 Cerrar sesión
+
+      </button>
 
     </nav>
 
@@ -68,43 +83,23 @@
 
   <main class="contenido-panel">
 
-    <app-dashboard
-      *ngIf="seccionPanel==='dashboard'">
-    </app-dashboard>
+    <app-dashboard *ngIf="seccionPanel==='dashboard'"></app-dashboard>
 
-    <app-alimentos
-      *ngIf="seccionPanel==='alimentos'">
-    </app-alimentos>
+    <app-alimentos *ngIf="seccionPanel==='alimentos'"></app-alimentos>
 
-    <app-categorias
-      *ngIf="seccionPanel==='categorias'">
-    </app-categorias>
+    <app-categorias *ngIf="seccionPanel==='categorias'"></app-categorias>
 
-    <app-donadores
-      *ngIf="seccionPanel==='donadores'">
-    </app-donadores>
+    <app-donadores *ngIf="seccionPanel==='donadores'"></app-donadores>
 
-    <app-beneficiarios
-      *ngIf="seccionPanel==='beneficiarios'">
-    </app-beneficiarios>
+    <app-beneficiarios *ngIf="seccionPanel==='beneficiarios'"></app-beneficiarios>
 
-    <app-donaciones
-      *ngIf="seccionPanel==='donaciones'">
-    </app-donaciones>
+    <app-donaciones *ngIf="seccionPanel==='donaciones'"></app-donaciones>
 
-    <app-distribuciones
-      *ngIf="seccionPanel==='distribuciones'">
-    </app-distribuciones>
+    <app-distribuciones *ngIf="seccionPanel==='distribuciones'"></app-distribuciones>
 
-    <app-inventario
-      *ngIf="seccionPanel==='inventario'">
-    </app-inventario>
+    <app-inventario *ngIf="seccionPanel==='inventario'"></app-inventario>
 
-   <app-administradores
-  *ngIf="seccionPanel==='administradores'">
-</app-administradores>
-
-
+    <app-administradores *ngIf="seccionPanel==='administradores'"></app-administradores>
 
   </main>
 

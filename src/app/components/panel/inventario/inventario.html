@@ -2,6 +2,73 @@
 
     <h2>Inventario General</h2>
 
+    <div class="filtros-inventario">
+
+        <div class="campo">
+
+            <label>Buscar</label>
+
+            <input
+                type="text"
+                [(ngModel)]="textoBusqueda"
+                placeholder="🔍 Buscar alimento">
+
+        </div>
+
+        <div class="campo">
+
+            <label>Categoría</label>
+
+            <select [(ngModel)]="categoriaBusqueda">
+
+                <option value="">Todas</option>
+
+                <option
+                    *ngFor="let categoria of categoriasUnicas"
+                    [value]="categoria">
+
+                    {{ categoria }}
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="campo">
+
+            <label>Estado</label>
+
+            <select [(ngModel)]="estadoStock">
+
+                <option value="">Todos</option>
+
+                <option value="disponible">
+                    Disponible
+                </option>
+
+                <option value="bajo">
+                    Stock Bajo
+                </option>
+
+                <option value="agotado">
+                    Agotado
+                </option>
+
+            </select>
+
+        </div>
+
+        <button
+            type="button"
+            (click)="textoBusqueda=''; categoriaBusqueda=''; estadoStock=''">
+
+            Limpiar
+
+        </button>
+
+    </div>
+
     <table class="tabla-panel">
 
         <thead>
@@ -21,7 +88,7 @@
 
         <tbody>
 
-            <tr *ngFor="let item of inventario()">
+            <tr *ngFor="let item of inventarioFiltrado">
 
                 <td>{{ item.alimentoNombre }}</td>
 
@@ -34,6 +101,16 @@
                 <td>{{ item.totalDistribuido }}</td>
 
                 <td>{{ item.stockActual }}</td>
+
+            </tr>
+
+            <tr *ngIf="inventarioFiltrado.length === 0">
+
+                <td colspan="6" style="text-align:center">
+
+                    No hay datos para mostrar.
+
+                </td>
 
             </tr>
 

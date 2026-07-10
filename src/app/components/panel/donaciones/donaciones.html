@@ -82,13 +82,62 @@
 
   <h3>Listado de Donaciones</h3>
 
+  <div
+  style="
+    display:flex;
+    gap:15px;
+    align-items:end;
+    margin:20px 0;
+    flex-wrap:wrap;">
+
+    <div class="campo">
+
+        <label>Buscar</label>
+
+        <input
+            type="text"
+            [(ngModel)]="textoBusqueda"
+            placeholder="🔍 Donador o alimento">
+
+    </div>
+
+    <div class="campo">
+
+        <label>Desde</label>
+
+        <input
+            type="date"
+            [(ngModel)]="fechaDesde">
+
+    </div>
+
+    <div class="campo">
+
+        <label>Hasta</label>
+
+        <input
+            type="date"
+            [(ngModel)]="fechaHasta">
+
+    </div>
+
+    <button
+        type="button"
+        (click)="textoBusqueda='';fechaDesde='';fechaHasta=''">
+
+        Limpiar
+
+    </button>
+
+</div>
+
   <table class="tabla-panel">
 
     <thead>
 
       <tr>
 
-        <th>ID</th>
+      
         <th>Donador</th>
         <th>Alimento</th>
         <th>Cantidad</th>
@@ -100,9 +149,9 @@
 
     <tbody>
 
-      <tr *ngFor="let donacion of donaciones()">
+  <tr *ngFor="let donacion of donacionesFiltradas">
 
-        <td>{{ donacion.id }}</td>
+      
 
     <td>{{ donacion.usuarioNombre }}</td>
 

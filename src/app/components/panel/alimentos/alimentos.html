@@ -74,13 +74,23 @@
 
   <h3>Listado de alimentos</h3>
 
+  <div class="campo" style="margin:20px 0;">
+
+    <input
+        type="text"
+        placeholder="🔍 Buscar alimento..."
+        [(ngModel)]="textoBusqueda"
+        name="buscar">
+
+</div>
+
   <table class="tabla-panel">
 
     <thead>
 
       <tr>
 
-        <th>ID</th>
+      
 
         <th>Nombre</th>
 
@@ -96,9 +106,9 @@
 
     <tbody>
 
-      <tr *ngFor="let alimento of alimentos()">
+     <tr *ngFor="let alimento of alimentosFiltrados">
 
-        <td>{{ alimento.id }}</td>
+
 
         <td>{{ alimento.nombre }}</td>
 

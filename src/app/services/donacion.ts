@@ -10,7 +10,7 @@ import { DonacionDTO } from '../models/donacion-dto';
 })
 export class DonacionService {
 
-  private apiUrl = 'http://localhost:8080/donaciones';
+  private apiUrl = '/donaciones';
 
   constructor(private http: HttpClient) {}
 

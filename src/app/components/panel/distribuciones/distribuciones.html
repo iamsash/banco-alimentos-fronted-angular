@@ -71,13 +71,33 @@
 
   <h3>Listado de Distribuciones</h3>
 
+  <div class="campo" style="margin:20px 0;">
+
+    <input
+        type="text"
+        placeholder="🔍 Buscar distribución..."
+        [(ngModel)]="textoBusqueda"
+        name="buscar">
+
+    <input
+        type="date"
+        [(ngModel)]="fechaDesde"
+        name="fechaDesde">
+
+    <input
+        type="date"
+        [(ngModel)]="fechaHasta"
+        name="fechaHasta">
+
+  </div>
+
   <table class="tabla-panel">
 
     <thead>
 
       <tr>
 
-        <th>ID</th>
+   
         <th>Beneficiario</th>
         <th>Alimento</th>
         <th>Cantidad</th>
@@ -88,9 +108,10 @@
 
     <tbody>
 
-      <tr *ngFor="let distribucion of distribuciones()">
+     <tr *ngFor="let distribucion of distribucionesFiltradas">
+        
 
-        <td>{{ distribucion.id }}</td>
+       
 
         <td>{{ distribucion.beneficiarioNombre }}</td>
 

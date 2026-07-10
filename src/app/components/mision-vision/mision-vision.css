@@ -1,124 +1,157 @@
-.mision-vision-container {
-  max-width: 1200px;
-  margin: 50px auto 0;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+/*====================================================
+                MISIÓN Y VISIÓN
+=====================================================*/
+
+.mision-vision-container{
+    max-width:1200px;
+    margin:50px auto 0;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
 }
 
-/* FILAS */
-.info-box {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch;
-  background: white;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-  border-bottom: 3px solid #f28c00;
-}
+/* TARJETAS */
 
-/* CONTENIDO */
-.info-content {
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+.info-box{
+    width:100%;
+    min-height:520px;
 
-/* TITULOS */
-.info-content h2 {
-  color: #f28c00;
-  font-size: 40px;
-  margin-bottom: 25px;
-  text-align: center;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    border-bottom:3px solid #f28c00;
 }
 
 /* TEXTO */
-.info-content p {
-  line-height: 1.9;
-  color: #444;
-  font-size: 17px;
+
+.info-content{
+    padding:55px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.info-content h2{
+    color:#f28c00;
+    font-size:40px;
+    font-weight:800;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.info-content p{
+    font-size:17px;
+    line-height:1.9;
+    color:#444;
+    text-align:justify;
+}
+
+/* ICONO */
+
+.icono-mv{
+    width:70px;
+    height:70px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#f28c00;
+    color:#fff;
+
+    border-radius:50%;
+    font-size:30px;
+
+    margin-bottom:20px;
 }
 
 /* IMAGEN */
-.imagen-mv-placeholder {
-  background: #efefef;
-  border: 2px dashed #bbb;
-  min-height: 420px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: #777;
-  font-size: 28px;
-  font-weight: 600;
+.imagen-box{
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
 }
 
-/* ICONOS */
-.icono-mv {
-  width: 70px;
-  height: 70px;
-  background: #f28c00;
-  border-radius: 50%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 30px;
-  color: white;
-
-  margin-bottom: 20px;
+.imagen-mv{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
 /* HEADER */
-.mision-vision-header {
-  text-align: center;
+
+.mision-vision-header{
+    text-align:center;
 }
 
-.mision-vision-header h2 {
-  font-size: 56px;
-  font-weight: 800;
+.mision-vision-header h2{
+    font-size:56px;
+    font-weight:800;
 }
 
-.mision-vision-header span {
-  color: #f28c00;
+.mision-vision-header span{
+    color:#f28c00;
 }
 
-.linea-mv {
-  width: 80px;
-  height: 4px;
-  background: #f28c00;
-  margin: 18px auto;
-  border-radius: 50px;
+.linea-mv{
+    width:80px;
+    height:4px;
+    background:#f28c00;
+    margin:18px auto;
+    border-radius:20px;
+}
+
+/* IMPACTO */
+
+.impacto-mv{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+
+    margin-top:25px;
+
+    padding:30px 40px;
+
+    background:#f7eee2;
+    border-radius:20px;
 }
 
 /* RESPONSIVE */
-@media (max-width: 992px) {
 
-  .info-box {
-    grid-template-columns: 1fr;
-  }
+@media(max-width:992px){
 
-  .imagen-mv-placeholder {
-    min-height: 280px;
-  }
+    .info-box{
+        grid-template-columns:1fr;
+        min-height:auto;
+    }
 
-  .info-content {
-    padding: 35px;
-  }
+    .info-content{
+        padding:35px;
+    }
+
+    .imagen-box{
+        height:320px;
+    }
+
+    .impacto-mv{
+        grid-template-columns:repeat(2,1fr);
+    }
+
 }
-.impacto-mv {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
 
-  background: #f7eee2;
-  padding: 30px 40px; /* <- aumenta esto */
-  border-radius: 20px;
+@media(max-width:576px){
 
-  margin-top: 25px;
+    .impacto-mv{
+        grid-template-columns:1fr;
+    }
+
 }

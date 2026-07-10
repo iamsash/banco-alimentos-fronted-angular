@@ -56,6 +56,16 @@
 
   <hr>
 
+  <div class="campo" style="margin:20px 0;">
+
+    <input
+        type="text"
+        placeholder="🔍 Buscar beneficiario..."
+        [(ngModel)]="textoBusqueda"
+        name="buscar">
+
+  </div>
+
   <h3>Listado de Beneficiarios</h3>
 
   <table class="tabla-panel">
@@ -64,7 +74,7 @@
 
       <tr>
 
-        <th>ID</th>
+     
         <th>Nombre</th>
         <th>Tipo</th>
         <th>Dirección</th>
@@ -77,9 +87,9 @@
 
     <tbody>
 
-      <tr *ngFor="let beneficiario of beneficiarios()">
+      <tr *ngFor="let beneficiario of beneficiariosFiltrados">
 
-        <td>{{ beneficiario.id }}</td>
+       
         <td>{{ beneficiario.nombre }}</td>
         <td>{{ beneficiario.tipo }}</td>
         <td>{{ beneficiario.direccion }}</td>
